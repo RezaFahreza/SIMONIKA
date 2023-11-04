@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -18,7 +18,6 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
         'email',
         'password',
     ];
@@ -42,4 +41,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // inverse on to many ke tabel role
+    public function roles()
+    {
+        return $this->belongsTo(Role::class, 'role_id');
+    }
+
+    // Relasi ke tabel 'Mahasiswa'
+    public function mahasiswa()
+    {
+        return $this->hasOne(Mahasiswa::class, 'user_id');
+    }
+
+    // Relasi ke tabel 'DosenWali'
+    public function dosenWali()
+    {
+        return $this->hasOne(DosenWali::class, 'user_id');
+    }
+
+    // Relasi ke tabel 'Operator'
+    public function operator()
+    {
+        return $this->hasOne(Operator::class, 'user_id');
+    }
 }
