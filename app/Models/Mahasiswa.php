@@ -40,4 +40,24 @@ class Mahasiswa extends Model
     {
         return $this->belongsTo(DosenWali::class, 'dosen_wali', 'nip');
     }
+
+    public function irs()
+    {
+        return $this->hasMany(Irs::class, 'mahasiswa_id', 'nim');
+    }
+
+    public function khs()
+    {
+        return $this->hasMany(Khs::class, 'mahasiswa_id', 'nim');
+    }
+
+    public function pkl()
+    {
+        return $this->hasOne(Pkl::class, 'mahasiswa_id', 'nim');
+    }
+
+    public function skripsi()
+    {
+        return $this->hasOne(Skripsi::class, 'mahasiswa_id', 'nim');
+    }
 }

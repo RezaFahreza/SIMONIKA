@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'email',
+        'username',
         'password',
     ];
 
@@ -38,7 +38,6 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
 
@@ -64,5 +63,10 @@ class User extends Authenticatable
     public function operator()
     {
         return $this->hasOne(Operator::class, 'user_id');
+    }
+
+    public function departemen()
+    {
+        return $this->hasOne(Departemen::class, 'user_id');
     }
 }

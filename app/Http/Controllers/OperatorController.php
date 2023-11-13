@@ -12,7 +12,7 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view('operator.dashboard');
+        return view('operator.dashboardOperator');
     }
 
     /**

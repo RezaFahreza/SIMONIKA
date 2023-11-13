@@ -14,15 +14,14 @@ return new class extends Migration
         Schema::create('dosen_wali', function (Blueprint $table) {
             $table->string('nip')->primary();
             $table->string('nama');
-            $table->string('email')->unique();
-            $table->string('handphone');
+            $table->string('email')->nullable();
+            $table->string('handphone')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });
 
         Schema::table('dosen_wali', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users'); // Kunci asing ke kolom 'user_id' pada tabel 'users'
-            $table->foreign('email')->references('email')->on('users');
         });
     }
 
@@ -32,7 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('dosen_wali', function (Blueprint $table) {
-            $table->dropForeign(['email']);
             $table->dropForeign(['user_id']);
         });
 

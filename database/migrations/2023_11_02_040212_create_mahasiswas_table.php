@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('kab_kota')->nullable();
             $table->string('propinsi')->nullable();
             $table->string('angkatan');
-            $table->enum('jalur_masuk', ['SNMPTN', 'SBMPTN', 'MANDIRI'])->default('SNMPTN');
-            $table->string('email');
+            $table->enum('jalur_masuk', ['SNMPTN', 'SBMPTN', 'MANDIRI']);
+            $table->string('email')->nullable();
             $table->string('handphone')->nullable();
             $table->enum('status', ['Aktif', 'Cuti', 'Mangkir', 'DO', 'Undur Diri', 'Lulus', 'Meninggal Dunia'])->default('Aktif');
             $table->string('foto_mahasiswa')->nullable();
@@ -28,7 +28,6 @@ return new class extends Migration
 
             $table->foreign('dosen_wali')->references('nip')->on('dosen_wali');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('email')->references('email')->on('users');
             $table->timestamps();
         });
     }
@@ -41,7 +40,6 @@ return new class extends Migration
         Schema::table('mahasiswa', function (Blueprint $table) {
             $table->dropForeign(['dosen_wali']);
             $table->dropForeign(['user_id']);
-            $table->dropForeign(['email']);
         });
 
         Schema::dropIfExists('mahasiswa');

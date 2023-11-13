@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('operator', function (Blueprint $table) {
             $table->string('nip')->primary();
             $table->string('nama');
-            $table->string('email')->unique();
+            $table->string('email')->unique()->nullable();
             $table->string('handphone');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
@@ -22,7 +22,6 @@ return new class extends Migration
 
         Schema::table('operator', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users'); // Kunci asing ke kolom 'user_id' pada tabel 'users'
-            $table->foreign('email')->references('email')->on('users');
         });
     }
 
@@ -32,7 +31,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('operator', function (Blueprint $table) {
-            $table->dropForeign(['email']);
             $table->dropForeign(['user_id']);
         });
 

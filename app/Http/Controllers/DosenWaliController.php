@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DosenWali;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DosenWaliController extends Controller
 {
@@ -13,9 +14,15 @@ class DosenWaliController extends Controller
     public function index()
     {
         //
-        return view('dosenWali.dashboard');
+        if (Auth::check()) {
+            $user = Auth::user(); // Dapatkan user yang sedang login
+            $dosenWali = DosenWali::where('user_id', $user->id)->first();
+            return view('dosenWali.dashboardDosenWali',['dosenWali'=>$dosenWali]);
+        } else {
+            // Redirect atau berikan pesan jika user belum login
+            return redirect()->route('login')->with('message', 'Anda harus login terlebih dahulu.');
+        }
     }
-
     /**
      * Show the form for creating a new resource.
      */
