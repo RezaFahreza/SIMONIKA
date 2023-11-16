@@ -53,7 +53,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 
 // untuk untuk departemen
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
-    Route::get('/departemen', [DepartemenController::class, 'index']);
+    Route::get('/departemen/dashboard', [DepartemenController::class, 'index'])->name('departemen.dashboard');
 });
 
 // untuk untuk dosenWali

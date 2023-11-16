@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Operator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OperatorController extends Controller
 {
@@ -12,7 +13,9 @@ class OperatorController extends Controller
      */
     public function index()
     {
-        return view('operator.dashboardOperator');
+        $user = Auth::user();
+        $operator = Operator::where('user_id', $user->id)->first();
+        return view('operator.dashboardOperator',compact('operator'));
     }
 
     /**

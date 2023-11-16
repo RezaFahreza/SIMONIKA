@@ -1,70 +1,208 @@
 @extends('layouts.main')
 
 @section('contents')
-    <div class="container mt-5">
-        <a href="{{ route('dosenWali.dashboard') }}" class="btn btn-primary">Kembali Ke
-                    Dashboard</a>
-        <div class="card">
-            <ul class="nav nav-tabs" id="myTabs">
-                <li class="nav-item">
-                    <a class="nav-link active" id="irs-tab" data-toggle="tab" href="{{route('dosenWali.verifikasi.irs')}}">IRS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="khs-tab" data-toggle="tab" href="{{route('dosenWali.verifikasi.khs')}}">KHS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pkl-tab" data-toggle="tab" href="{{route('dosenWali.verifikasi.pkl')}}">PKL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="skripsi-tab" data-toggle="tab" href="{{route('dosenWali.verifikasi.skripsi')}}">Skripsi</a>
-                </li>
-            </ul>
-            <h2 class="text-center">Daftar IRS Mahasiswa</h2>
-            <div class="card-body">
-                <hr />
-                @if (Session::has('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ Session::get('success') }}
-                    </div>
-                @endif
-                <table class="table table-hover">
-                    <thead class="table-primary">
-                        <tr>
-                            <th>No</th>
-                            <th>NIM</th>
-                            <th>Nama Mahasiswa</th>
-                            <th>Semester Aktif</th>
-                            <th>Status Validasi</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @if ($irsMahasiswa->count() > 0)
-                            @foreach ($irsMahasiswa as $irs)
-                                <tr>
-                                    <td class="align-middle">{{ $loop->iteration }}</td>
-                                    <td class="align-middle">{{ $irs->mahasiswa_id }}</td>
-                                    <td class="align-middle">{{ $irs->nama }}</td>
-                                    <td class="align-middle">{{ $irs->semester_aktif }}</td>
-                                    <td class="align-middle">{{ $irs->status_validasi }}</td>
-                                    <td class="align-middle">
-                                        <div class="btn-group" role="group" aria-label="Basic example">
-                                            <a href="{{route('dosenWali.verifikasi.irs.show',['id'=>$irs->id])}}"
-                                                type="button" class="btn btn-link">Detail</a>
-                                            </form>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
-                            <tr>
-                                <td class="text-center" colspan="7">IRS tidak Ditemukan</td>
-                            </tr>
-                        @endif
-                    </tbody>
-                </table>
 
+    <head>
+        <title>Daftar IRS Mahasiswa</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            /* Atur gaya kustom di sini */
+            .sidenav {
+                height: 100%;
+                width: 250px;
+                position: fixed;
+                z-index: 1;
+                top: 0;
+                left: -250px;
+                /* Semula sidenav tersembunyi */
+                background-color: #333;
+                padding-top: 20px;
+                transition: left 0.3s;
+            }
+
+            .sidenav a {
+                padding: 10px 15px;
+                text-align: left;
+                text-decoration: none;
+                font-size: 16px;
+                color: white;
+                display: block;
+            }
+
+            .sidenav a:hover {
+                background-color: #555;
+            }
+
+            .sidenav a:active {
+                border: 1px solid;
+                background-color: #000;
+            }
+
+            .content {
+                margin-left: 0;
+                padding: 20px;
+                transition: margin-left 0.3s;
+            }
+
+            .sidenav.active {
+                left: 0;
+                /* Menampilkan sidenav saat active */
+            }
+
+            .content.active {
+                margin-left: 250px;
+                /* Geser konten saat active */
+            }
+
+            .navbar-toggler {
+                color: #fff;
+            }
+
+            .navbar-toggle-btn {
+                padding: 5px 15px;
+                font-size: 24px;
+                color: white;
+                cursor: pointer;
+                z-index: 2;
+            }
+
+            .navbar.active {
+                margin-left: 250px;
+                transition: margin-left 0.3s;
+            }
+
+            .navbar-brand {
+                font-weight: 600;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
             </div>
+        @endif
+
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="navbar-toggle-btn" id="toggleSidenav">
+                <i class="fa fa-bars"></i>
+            </div>
+            <span class="navbar-brand">Verifikasi</span>
+            <form action="/logout" method="post" class="navbar-brand">
+                @csrf
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
+        </nav>
+
+        <div class="sidenav" id="mySidenav">
+
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                IRS</a>
+            <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                KHS</a>
+            <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                PKL</a>
+            <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                Skripsi</a>
+
         </div>
-    </div>
+
+        <div class="content" id="content">
+
+
+
+            <div id="irs" class="feature-content">
+                <div class="container mt-5">
+                    <a href="{{ route('dosenWali.dashboard') }}" class="btn btn-primary">Kembali Ke
+                        Dashboard</a>
+                    <div class="card">
+                        
+                        <h2 class="text-center mt-3">Daftar IRS Mahasiswa</h2>
+                        <div class="card-body">
+                            <hr />
+                            @if (Session::has('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ Session::get('success') }}
+                                </div>
+                            @endif
+                            <table class="table table-hover">
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>No</th>
+                                        <th>NIM</th>
+                                        <th>Nama Mahasiswa</th>
+                                        <th>Semester Aktif</th>
+                                        <th>Status Validasi</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if ($irsMahasiswa->count() > 0)
+                                        @foreach ($irsMahasiswa as $irs)
+                                            <tr>
+                                                <td class="align-middle">{{ $loop->iteration }}</td>
+                                                <td class="align-middle">{{ $irs->mahasiswa_id }}</td>
+                                                <td class="align-middle">{{ $irs->nama }}</td>
+                                                <td class="align-middle">{{ $irs->semester_aktif }}</td>
+                                                <td class="align-middle">{{ $irs->status_validasi }}</td>
+                                                <td class="align-middle">
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                        <a href="{{ route('dosenWali.verifikasi.irs.show', ['id' => $irs->id]) }}"
+                                                            type="button" class="btn btn-link">Detail</a>
+                                                        </form>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    @else
+                                        <tr>
+                                            <td class="text-center" colspan="7">IRS tidak Ditemukan</td>
+                                        </tr>
+                                    @endif
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="khs" class="feature-content">
+            </div>
+
+            <div id="pkl" class="feature-content">
+            </div>
+
+            <div id="skripsi" class="feature-content">
+            </div>
+
+            <script>
+                // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
+                window.onload = function() {
+                    showFeature('irs');
+                };
+
+                document.getElementById('toggleSidenav').addEventListener('click', function() {
+                    document.getElementById('mySidenav').classList.toggle('active');
+                    document.getElementsByClassName('content')[0].classList.toggle('active');
+                    document.getElementsByClassName('navbar')[0].classList.toggle('active');
+                });
+
+                function showFeature(feature) {
+                    const featureContents = document.querySelectorAll('.feature-content');
+                    featureContents.forEach(content => {
+                        content.style.display = 'none';
+                    });
+
+                    const contentToShow = document.getElementById(feature);
+                    contentToShow.style.display = 'block';
+                }
+            </script>
+
+    </body>
+
 @endsection

@@ -27,4 +27,9 @@ class DosenWali extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function mahasiswa()
+    {
+        return $this->hasMany(Mahasiswa::class, 'dosen_wali', 'nip');
+    }
 }

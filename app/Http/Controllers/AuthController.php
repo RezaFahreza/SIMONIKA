@@ -41,16 +41,16 @@ class AuthController extends Controller
 
             if ($user->role_id === 1) {
                 // Jika user operator
-                return redirect()->intended('/operator');
+                return redirect()->intended(route('operator.dashboard'));
             } elseif ($user->role_id === 2) {
                 // Jika user departemen
-                return redirect()->intended('/departemen')->with('user', $user);
+                return redirect()->intended(route('departemen.dashboard'));
             } elseif ($user->role_id === 3) {
                 // Jika user dosenWali
                 return redirect()->intended(route('dosenWali.dashboard'));
             } elseif ($user->role_id === 4) {
                 // Jika user mahasiswa
-                return redirect()->intended('/mahasiswa');
+                return redirect()->intended(route('mahasiswa.index'));
             }
         }
 
