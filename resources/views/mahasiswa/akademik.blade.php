@@ -109,7 +109,7 @@
                 PKL</a>
             <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
                 Skripsi</a>
-
+                
         </div>
 
         <div class="content" id="content">
@@ -123,23 +123,22 @@
                                     href="{{ route('mahasiswa.dashboard.akademik') }}">Biodata Akademik</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.irs') }}">IRS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.khs') }}">KHS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.pkl') }}">PKL</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}">Skripsi</a>
                             </li>
-                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary">Kembali Ke
-                                Dashboard</a>
+                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary" style="margin-right: 19cm">Kembali Ke Dashboard</a>    
                         </ul>
                     </div>
                     <div class="card-body">
