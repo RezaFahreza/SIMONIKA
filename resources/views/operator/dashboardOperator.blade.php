@@ -124,7 +124,7 @@
 
                         <!-- Flexbox 2 -->
                         <div class="col-md-8">
-                            <div class="d-flex flex-column">
+                            <div class="d-flex flex-column border p-3">
                                 <!-- Box 1 -->
                                 <div class="bg-primary text-white p-3 mb-3">
                                     <h4>Profile</h4>
