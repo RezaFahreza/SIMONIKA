@@ -31,6 +31,8 @@ use App\Http\Controllers\VerifikasiProgressStudiController;
 //     return view('dosenWali.daftarSudahLulusPkl');
 // });
 
+
+
 // jika user belom login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [AuthController::class, 'login'])->name('login');
@@ -49,6 +51,7 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/operator/dashboard', [OperatorController::class, 'index'])->name('operator.dashboard');
     Route::get('/operator/generateakunmahasiswa', [UserController::class, 'generateUserMahasiswa'])->name('generate.user.mahasiswa');
     Route::post('/operator', [UserController::class, 'storeUserMahasiswa'])->name('store.user.mahasiswa');
+    Route::post('/operator/storeexcel', [UserController::class, 'storeUserMahasiswaExcel'])->name('store.user.mahasiswa.excel');
 });
 
 // untuk untuk departemen
