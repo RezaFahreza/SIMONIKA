@@ -66,7 +66,7 @@
                                     <img src="{{URL::asset('images/image1.jpg')}}" alt="Foto Mahasiswa" class="img-fluid">
                                 </div>
                                 <div class="col-md-8">
-                                    <table class="table">
+                                    <table class="table mt-4">
                                         <tbody>
                                             <tr>
                                                 <td>Nama:</td>
@@ -97,7 +97,7 @@
                 <div class="flex-item" style="background-color:steelblue">3</div>
                 <div class="flex-item" style="background-color:steelblue">4</div>
                 <div class="flex-item" style="background-color:steelblue">5</div>
-                <div class="flex-item" style="background-color:yellow">6</div>
+                <div class="flex-item" style="background-color:gold">6</div>
                 <div class="flex-item" style="background-color:steelblue">7</div>
                 <div class="flex-item" style="background-color:green">8</div>
                 <div class="flex-item" style="background-color:red">9</div>
@@ -122,10 +122,10 @@
                     </div>
                     <div class="box-with-text">
                         <div class="box" style="background-color: steelblue"></div>
-                        <p class="text">Sudah diiskan (IRS dan KHS)</p>
+                        <p class="text">Sudah diisikan (IRS dan KHS)</p>
                     </div>
                     <div class="box-with-text">
-                        <div class="box" style="background-color: yellow"></div>
+                        <div class="box" style="background-color: gold"></div>
                         <p class="text">Sudah Lulus PKL (IRS, KHS, dan PKL)</p>
                     </div>
                     <div class="box-with-text">

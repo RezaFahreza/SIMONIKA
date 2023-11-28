@@ -16,7 +16,7 @@
                 top: 0;
                 left: -250px;
                 /* Semula sidenav tersembunyi */
-                background-color: #333;
+                background-color: #000000;
                 padding-top: 20px;
                 transition: left 0.3s;
             }
