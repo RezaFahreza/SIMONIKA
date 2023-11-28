@@ -99,27 +99,27 @@
 
         <div class="sidenav" id="mySidenav">
 
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
-            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Departemen</h2>
+            <a href="#"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="#"><i class="fa fa-user"></i>
                 Akademik</a>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+            <a href="#"><i class="fa fa-user"></i>
                 Verifikasi Progress Studi</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                    <a href="#"><i class="fa fa-user"></i>
                         IRS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                    <a href="#"><i class="fa fa-user"></i>
                         KHS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                    <a href="#"><i class="fa fa-user"></i>
                         PKL</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                    <a href="#"><i class="fa fa-user"></i>
                         Skripsi</a>
                 </li>
             </ul>
@@ -129,7 +129,7 @@
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
                 <div class="container">
-                    <h3 class="text-center mt-3">Dashboard Dosen Wali</h3>
+                    <h3 class="text-center mt-3">Dashboard Departemen</h3>
                     <div class="mx-auto py-6 sm:px-6 lg:px-8">
                         <div class="container px-4 py-5">
                             <div class="card px-4 py-2">
@@ -142,7 +142,7 @@
                                     <div class="col ml-4">
                                         <p class="text-sm font-semibold text-gray-900">Darril</p>
                                         <p class="mt-1 text-xs text-gray-500">darril@gmail.com</p>
-                                        <p class="text-sm font-weight-bold text-gray-900">Dosen Wali</p>
+                                        <p class="text-sm font-weight-bold text-gray-900">Departemen</p>
                                         <p class="mt-1 text-xs text-gray-500">Informatika</p>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                             alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant."
                                             class="card-img-top">
                                         <div class="card-body text-center">
-                                            <a href="{{ route('dosenWali.akademik.index') }}" class="card-title">Akademik</a>
+                                            <a href="#" class="card-title">Akademik</a>
                                             <p class="card-text text-gray-600">IRS, PKL, PKL, Skripsi</p>
                                         </div>
                                     </div>
@@ -179,7 +179,7 @@
                                             alt="Collection of four insulated travel bottles on wooden shelf."
                                             class="card-img-top">
                                         <div class="card-body text-center">
-                                            <a href="{{ route('dosenWali.verifikasi.irs') }}" class="card-title">Verifikasi Progress Studi</a>
+                                            <a href="#" class="card-title">Verifikasi Progress Studi</a>
                                             <p class="card-text text-gray-600">Verifikasi Progress Studi Mahasiswa</p>
                                         </div>
                                     </div>

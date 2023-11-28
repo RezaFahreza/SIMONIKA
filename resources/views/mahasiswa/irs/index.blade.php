@@ -93,15 +93,30 @@
         <div class="sidenav" id="mySidenav">
 
             <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href="{{ route('mahasiswa.dashboard.akademik') }}"><i class="fa fa-dashboard"></i> Biodata</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
-                IRS</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
-                KHS</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
-                PKL</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
-                Skripsi</a>
+            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('mahasiswa.dashboard.akademik', ['mahasiswa' => $mahasiswa]) }}"><i class="fa fa-user"></i>
+                Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik') }}"><i class="fa fa-dashboard"></i> Biodata</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
+                            IRS</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
+                            KHS</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
+                            PKL</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
+                            Skripsi</a>
+                    </li>
+                </ul>
 
         </div>
 
@@ -117,26 +132,25 @@
                         <ul class="nav nav-tabs card-header-tabs">
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="true"
-                                    href="">Biodata Akademik</a>
+                                    href="{{ route('mahasiswa.dashboard.akademik') }}">Biodata Akademik</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="true""
+                                <a class="nav-link active" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.irs') }}">IRS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.khs') }}">KHS</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.pkl') }}">PKL</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" aria-current="true""
+                                <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}">Skripsi</a>
                             </li>
-                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary">Kembali Ke
-                                Dashboard</a>
+                            
                         </ul>
                     </div>
                     <div class="card-body">

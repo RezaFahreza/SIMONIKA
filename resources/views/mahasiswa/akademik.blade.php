@@ -100,15 +100,30 @@
         <div class="sidenav" id="mySidenav">
 
             <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href="{{ route('mahasiswa.dashboard.akademik') }}"><i class="fa fa-dashboard"></i> Biodata</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
-                IRS</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
-                KHS</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
-                PKL</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
-                Skripsi</a>
+            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('mahasiswa.dashboard.akademik', ['mahasiswa' => $mahasiswa]) }}"><i class="fa fa-user"></i>
+                Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik') }}"><i class="fa fa-dashboard"></i> Biodata</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
+                            IRS</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
+                            KHS</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
+                            PKL</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
+                            Skripsi</a>
+                    </li>
+                </ul>
                 
         </div>
 
@@ -138,21 +153,65 @@
                                 <a class="nav-link" aria-current="true"
                                     href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}">Skripsi</a>
                             </li>
-                            <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary" style="margin-right: 19cm">Kembali Ke Dashboard</a>    
                         </ul>
                     </div>
                     <div class="card-body">
-                        <div class="container">
-                            <h2>Biodata Mahasiswa</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <img src="{{ asset('storage/' . $mahasiswa->foto_mahasiswa) }}" alt="Foto Mahasiswa"
-                                        class="img-thumbnail">
-                                </div>
-                                <div class="col-md-6">
-                                    <h3>Nama: {{ $mahasiswa->nama }}</h3>
-                                    <p>NIM: {{ $mahasiswa->nim }}</p>
-                                    <!-- Tambahkan data biodata lainnya di sini -->
+                        <div class="container mt-5">
+                            <div class="card">
+                                <h2 class="text-center mt-5">Biodata Mahasiswa</h2>
+                                <div class="card-body mt-3">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Mahasiswa" class="img-fluid">
+                    
+                                        </div>
+                                        <div class="col-md-8">
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Nama:</td>
+                                                        <td>{{ $mahasiswa->nama }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>NIM:</td>
+                                                        <td>{{ $mahasiswa->nim }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Alamat:</td>
+                                                        <td>{{ $mahasiswa->alamat }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Kab/Kota:</td>
+                                                        <td>{{ $mahasiswa->kab_kota }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Propinsi:</td>
+                                                        <td>{{ $mahasiswa->propinsi }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Angkatan:</td>
+                                                        <td>{{ $mahasiswa->angkatan }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Jalur Masuk:</td>
+                                                        <td>{{ $mahasiswa->jalur_masuk }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Email:</td>
+                                                        <td>{{ $mahasiswa->email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Handphone:</td>
+                                                        <td>{{ $mahasiswa->handphone }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status:</td>
+                                                        <td>{{ $mahasiswa->status }}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

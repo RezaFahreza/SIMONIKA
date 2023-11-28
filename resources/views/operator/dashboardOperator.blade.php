@@ -16,7 +16,7 @@
                 top: 0;
                 left: -250px;
                 /* Semula sidenav tersembunyi */
-                background-color: #000000;
+                background-color: #333;
                 padding-top: 20px;
                 transition: left 0.3s;
             }
@@ -80,11 +80,11 @@
 
     <body>
 
-                    @if (session('success'))
-                        <div class="alert alert-success mt-3">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+        @if (session('success'))
+            <div class="alert alert-success mt-3">
+                {{ session('success') }}
+            </div>
+        @endif
 
         <nav class="navbar navbar-dark bg-dark">
             <div class="navbar-toggle-btn" id="toggleSidenav">
@@ -92,13 +92,13 @@
             </div>
             <span class="navbar-brand">Operator</span>
             <form action="/logout" method="post" class="navbar-brand">
-                    @csrf
-                    <button type="submit" class="btn btn-primary">Logout</button>
-                </form>
+                @csrf
+                <button type="submit" class="btn btn-primary">Logout</button>
+            </form>
         </nav>
 
         <div class="sidenav" id="mySidenav">
-        
+
             <h2 style="color: #fff; text-align: center; padding: 15px;">Admin Dashboard</h2>
             <a href="javascript:void(0);" onclick="showFeature('dashboard')"><i class="fa fa-dashboard"></i> Dashboard</a>
             <a href="{{ route('generate.user.mahasiswa') }}"><i class="fa fa-user"></i> Generate Akun</a>
@@ -107,98 +107,94 @@
 
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
-                <div class="container mt-5">
-                    <div class="row">
-                        <!-- Flexbox 1 -->
-                        <div class="col-md-4">
-                            <div class="d-flex flex-column align-items-center border p-3">
-                                <img src="{{ URL::asset('images/image1.jpg') }}" alt="Avatar"
-                                    class="img-fluid rounded-circle" style="width: 150px;">
-                                <div class="border p-3 mt-3">
-                                    <p class="mb-0"><strong>Nama:</strong> John Doe</p>
-                                    <p class="mb-0"><strong>NIM:</strong> 123456</p>
-                                    <p class="mb-0"><strong>Email:</strong> john.doe@example.com</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Flexbox 2 -->
-                        <div class="col-md-8">
-                            <div class="d-flex flex-column border p-3">
-                                <!-- Box 1 -->
-                                <div class="bg-primary text-white p-3 mb-3">
-                                    <h4>Profile</h4>
-                                </div>
-
-                                <!-- Box 2 -->
-                                <div class="bg-secondary text-white p-3 mb-3">
-                                    <h4>Akademik</h4>
-                                </div>
-
-                                <!-- Box 3 -->
-                                <div class="bg-info text-white p-3">
-                                    <h4>Generate Akun</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="generate" class="feature-content">
-                <a href="{{ route('generate.user.mahasiswa') }}" class="btn btn-success mr-2">Generate Akun
-                        Mahasiswa</a>
-            </div>
-
-            <div id="reports" class="feature-content">
                 <div class="container">
-                    <div class="row mt-5">
-                        <div class="col-md-6 offset-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h2 class="card-title text-center">Upload Data Mahasiswa</h2>
+                    <h3 class="text-center mt-3">Dashboard Operator</h3>
+                    <div class="mx-auto py-6 sm:px-6 lg:px-8">
+                        <div class="container px-4 py-5">
+                            <div class="card px-4 py-2">
+                                <div class="row gx-4 gy-2 align-items-center">
+                                    <div class="col-3">
+                                        <img class="h-12 w-12 rounded-circle bg-gray-50"
+                                            src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt="foto profile">
+                                    </div>
+                                    <div class="col ml-4">
+                                        <p class="text-sm font-semibold text-gray-900">Darril</p>
+                                        <p class="mt-1 text-xs text-gray-500">darril@gmail.com</p>
+                                        <p class="text-sm font-weight-bold text-gray-900">Operator</p>
+                                        <p class="mt-1 text-xs text-gray-500">Informatika</p>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    <form action="process-upload.php" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
-                                            <label for="file">Pilih File CSV:</label>
-                                            <input type="file" class="form-control-file" id="file" name="file">
+                            <h2 class="mt-4 text-3xl font-bold text-gray-900 mb-4">Menu</h2>
+
+                            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg"
+                                            alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug."
+                                            class="card-img-top">
+                                        <div class="card-body text-center">
+                                            <a href="#" class="card-title">Profile</a>
+                                            <p class="card-text text-gray-600">Edit Profile</p>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-block">Upload</button>
-                                    </form>
+                                    </div>
+                                </div>
+                    
+                                <div class="col">
+                                    <div class="card">
+                                        <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg"
+                                            alt="Collection of four insulated travel bottles on wooden shelf."
+                                            class="card-img-top">
+                                        <div class="card-body text-center">
+                                            <a href="{{ route('generate.user.mahasiswa') }}" class="card-title">Generate Akun</a>
+                                            <p class="card-text text-gray-600">Generate Akun Mahasiswa</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div id="settings" class="feature-content">
-                
+        <div id="generate" class="feature-content">
+            <a href="{{ route('generate.user.mahasiswa') }}" class="btn btn-success mr-2">Generate Akun
+                Mahasiswa</a>
+        </div>
 
-            </div>
+        <div id="reports" class="feature-content">
 
-            <script>
-                // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
-                window.onload = function() {
-                    showFeature('dashboard');
-                };
+        </div>
 
-                document.getElementById('toggleSidenav').addEventListener('click', function() {
-                    document.getElementById('mySidenav').classList.toggle('active');
-                    document.getElementsByClassName('content')[0].classList.toggle('active');
-                    document.getElementsByClassName('navbar')[0].classList.toggle('active');
+        <div id="settings" class="feature-content">
+
+        </div>
+
+        <script>
+            // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
+            window.onload = function() {
+                showFeature('dashboard');
+            };
+
+            document.getElementById('toggleSidenav').addEventListener('click', function() {
+                document.getElementById('mySidenav').classList.toggle('active');
+                document.getElementsByClassName('content')[0].classList.toggle('active');
+                document.getElementsByClassName('navbar')[0].classList.toggle('active');
+            });
+
+            function showFeature(feature) {
+                const featureContents = document.querySelectorAll('.feature-content');
+                featureContents.forEach(content => {
+                    content.style.display = 'none';
                 });
 
-                function showFeature(feature) {
-                    const featureContents = document.querySelectorAll('.feature-content');
-                    featureContents.forEach(content => {
-                        content.style.display = 'none';
-                    });
-
-                    const contentToShow = document.getElementById(feature);
-                    contentToShow.style.display = 'block';
-                }
-            </script>
+                const contentToShow = document.getElementById(feature);
+                contentToShow.style.display = 'block';
+            }
+        </script>
 
     </body>
 @endsection
