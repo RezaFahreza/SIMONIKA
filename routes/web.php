@@ -136,7 +136,4 @@ Route::group(['middleware' => ['auth', 'checkrole:4']], function () {
     Route::get('/mahasiswa/dashboard/akademik/skripsi/edit/{id}', [SkripsiController::class, 'edit'])->name('mahasiswa.dashboard.akademik.skripsi.edit');
     Route::put('/mahasiswa/dashboard/akademik/skripsi/edit/{id}', [SkripsiController::class, 'update'])->name('mahasiswa.dashboard.akademik.skripsi.update');
 
-    Route::get('/search', [SearchController::class, 'index'])->name('search.index');
-    Route::post('/search', [SearchController::class, 'search'])->name('search');
-
 });
