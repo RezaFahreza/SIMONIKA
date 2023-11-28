@@ -79,13 +79,6 @@
     </head>
 
     <body>
-
-        @if (session('success'))
-            <div class="alert alert-success mt-3">
-                {{ session('success') }}
-            </div>
-        @endif
-
         <nav class="navbar navbar-dark bg-dark">
             <div class="navbar-toggle-btn" id="toggleSidenav">
                 <i class="fa fa-bars"></i>

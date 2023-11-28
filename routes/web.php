@@ -93,6 +93,11 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
     Route::get('/dosenwali/dashboard/verifikasiprogressstudi/skripsi/edit/{id}', [VerifikasiProgressStudiController::class, 'editSkripsi'])->name('dosenWali.verifikasi.skripsi.edit');
     Route::put('/dosenwali/dashboard/verifikasiprogressstudi/skripsi/update/{id}', [VerifikasiProgressStudiController::class, 'updateSkripsi'])->name('dosenWali.verifikasi.skripsi.update');
     Route::put('/dosenwali/dashboard/verifikasiprogressstudi/skripsi/validate/{id}', [VerifikasiProgressStudiController::class, 'validateSkripsi'])->name('dosenWali.verifikasi.skripsi.validate');
+
+    // Akademik
+    Route::get('dosenwali/akademik', [AkademikDosenWaliController::class, 'index'])->name('dosenWali.akademik.index');
+    Route::get('dosenwali/akademik-search', [AkademikDosenWaliController::class, 'searchMahasiswa'])->name('dosenWali.akademik.search');
+    Route::get('dosenwali/akademik/profile/{nim}', [AkademikDosenWaliController::class, 'indexAkademik'])->name('dosenWali.akademik.profile');
 });
 
 // untuk untuk mahasiswa

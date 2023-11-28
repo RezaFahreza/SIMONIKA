@@ -102,7 +102,7 @@
 
             <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href=""><i class="fa fa-user"></i>
+            <a href="{{route('dosenWali.akademik.index')}}"><i class="fa fa-user"></i>
                 Akademik</a>
             <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
                 Verifikasi Progress Studi</a>

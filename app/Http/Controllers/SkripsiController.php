@@ -70,7 +70,7 @@ class SkripsiController extends Controller
         $skripsi->save();
 
         return redirect()->route('mahasiswa.dashboard.akademik.skripsi', ['mahasiswa' => $mahasiswa])
-            ->with('success', 'Berkas dan  Berhasil Diunggah');
+            ->with('success', 'Berkas Berhasil Diunggah');
     }
 
     /**
@@ -102,7 +102,7 @@ class SkripsiController extends Controller
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $user = Auth::user();
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
-        
+
         $request->validate([
             'semester' => 'required|max:1',
             'nilai_skripsi' => 'required|max:1',
