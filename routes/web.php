@@ -28,7 +28,7 @@ use App\Http\Controllers\VerifikasiProgressStudiController;
 */
 
 // Route::get('/', function () {
-//     return view('dosenWali.searchMahasiswa');
+//     return view('dosenWali.dashboardDosenWali');
 // });
 
 
