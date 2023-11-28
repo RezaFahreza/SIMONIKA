@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Departemen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DepartemenController extends Controller
 {
@@ -12,9 +13,24 @@ class DepartemenController extends Controller
      */
     public function index()
     {
-        //
-        return view('departemen.dashboard');
+        if (Auth::check()) {
+            $user = Auth::user(); // Dapatkan user yang sedang login
+            $departemen = Departemen::where('user_id', $user->id)->first();
+            return view('departemen.dashboardDepartemen',compact('departemen'));
+        } else {
+            // Redirect atau berikan pesan jika user belum login
+            return redirect()->route('login')->with('message', 'Anda harus login terlebih dahulu.');
+        }
+        
     }
+
+    public function profilDepartemen(){
+
+
+        return view();
+    }
+
+    
 
     /**
      * Show the form for creating a new resource.

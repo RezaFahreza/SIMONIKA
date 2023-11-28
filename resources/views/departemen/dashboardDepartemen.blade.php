@@ -168,7 +168,7 @@
                                             alt="Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant."
                                             class="card-img-top">
                                         <div class="card-body text-center">
-                                            <a href="#" class="card-title">Akademik</a>
+                                            <a href="{{route('departemen.akademik')}}" class="card-title">Akademik</a>
                                             <p class="card-text text-gray-600">IRS, PKL, PKL, Skripsi</p>
                                         </div>
                                     </div>
