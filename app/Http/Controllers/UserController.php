@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\UserMahasiswaImport;
 use App\Models\DosenWali;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Routing\Route;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -46,6 +48,12 @@ class UserController extends Controller
         $mahasiswa->save();
 
         return redirect()->route('operator.dashboard')->with('success','Akun Mahasiswa Berhasil Ditambahkan.');
+    }
+
+    public function storeUserMahasiswaExcel(Request $request){
+        Excel::import(new UserMahasiswaImport(), $request->file('input_excel'));
+
+        return redirect()->route('generate.user.mahasiswa')->with('success', 'Akun Mahasiswa Berhasil Ditambahkan.');
     }
     public function index()
     {

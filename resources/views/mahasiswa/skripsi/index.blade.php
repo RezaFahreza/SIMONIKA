@@ -79,13 +79,6 @@
     </head>
 
     <body>
-
-        @if (session('success'))
-            <div class="alert alert-success mt-3">
-                {{ session('success') }}
-            </div>
-        @endif
-
         <nav class="navbar navbar-dark bg-dark">
             <div class="navbar-toggle-btn" id="toggleSidenav">
                 <i class="fa fa-bars"></i>
@@ -115,7 +108,7 @@
         <div class="content" id="content">
 
             <div id="dashboard" class="feature-content">
-                
+
             </div>
 
             <div id="irs" class="feature-content">
@@ -189,8 +182,7 @@
                                             @method('PUT')
                                             <div class="form-group mb-3">
                                                 <label for="semester" class="form-label">Semester</label>
-                                                <input type="text" name="semester" class="form-control"
-                                                    value="">
+                                                <input type="text" name="semester" class="form-control" value="">
                                             </div>
                                             <div class="form-group mb-3">
                                                 <label for="nilai_skripsi" class="form-label">Nilai skripsi</label>

@@ -133,22 +133,22 @@ class MahasiswaController extends Controller
             Storage::disk('public')->put($filePath, file_get_contents($foto));
             $mahasiswa->foto_mahasiswa = $filePath;
 
-        $mahasiswa->save();
-        
-        // Tambahkan catatan otomatis di tabel PKL
-        $pkl = new PKL();
-        $pkl->status = 'belum ambil';
-        $pkl->mahasiswa_id = $mahasiswa->nim;
-        $pkl->save();
-        
-        // Tambahkan catatan otomatis di tabel Skripsi
-        $skripsi = new Skripsi();
-        $skripsi->status = 'belum ambil';
-        $skripsi->mahasiswa_id = $mahasiswa->nim;
-        $skripsi->save();
-        
-        return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa berhasil diperbarui.');
-    }
+            $mahasiswa->save();
+            
+            // Tambahkan catatan otomatis di tabel PKL
+            $pkl = new PKL();
+            $pkl->status = 'belum ambil';
+            $pkl->mahasiswa_id = $mahasiswa->nim;
+            $pkl->save();
+            
+            // Tambahkan catatan otomatis di tabel Skripsi
+            $skripsi = new Skripsi();
+            $skripsi->status = 'belum ambil';
+            $skripsi->mahasiswa_id = $mahasiswa->nim;
+            $skripsi->save();
+            
+            return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa berhasil diperbarui.');
+        }
 }
     public function store(Request $request, )
     {
