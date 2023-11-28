@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AkademikController;
+use App\Http\Controllers\AkademikDepartemenController;
 use App\Http\Controllers\AkademikDosenWaliController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
@@ -57,6 +58,14 @@ Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
 // untuk untuk departemen
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/departemen/dashboard', [DepartemenController::class, 'index'])->name('departemen.dashboard');
+    Route::get('/departemen/profile', [DepartemenController::class, 'profilDepartemen'])->name('departemen.profile');
+
+    // Progress Studi Akademik
+    Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik');
+    Route::get('/departemen/akademik-search', [AkademikDepartemenController::class, 'searchMahasiswa'])->name('departemen.akademik.search');
+    Route::get('/departemen/akademik/profile/{nim}', [AkademikDepartemenController::class, 'indexAkademik'])->name('departemen.akademik.profile');
+
+    // Rekap Progress Studi Akademik
 });
 
 // untuk untuk dosenWali
@@ -94,10 +103,12 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
     Route::put('/dosenwali/dashboard/verifikasiprogressstudi/skripsi/update/{id}', [VerifikasiProgressStudiController::class, 'updateSkripsi'])->name('dosenWali.verifikasi.skripsi.update');
     Route::put('/dosenwali/dashboard/verifikasiprogressstudi/skripsi/validate/{id}', [VerifikasiProgressStudiController::class, 'validateSkripsi'])->name('dosenWali.verifikasi.skripsi.validate');
 
-    // Akademik
-    Route::get('dosenwali/akademik', [AkademikDosenWaliController::class, 'index'])->name('dosenWali.akademik.index');
-    Route::get('dosenwali/akademik-search', [AkademikDosenWaliController::class, 'searchMahasiswa'])->name('dosenWali.akademik.search');
-    Route::get('dosenwali/akademik/profile/{nim}', [AkademikDosenWaliController::class, 'indexAkademik'])->name('dosenWali.akademik.profile');
+    // Progress Studi Akademik
+    Route::get('/dosenwali/akademik', [AkademikDosenWaliController::class, 'index'])->name('dosenWali.akademik.index');
+    Route::get('/dosenwali/akademik-search', [AkademikDosenWaliController::class, 'searchMahasiswa'])->name('dosenWali.akademik.search');
+    Route::get('/dosenwali/akademik/profile/{nim}', [AkademikDosenWaliController::class, 'indexAkademik'])->name('dosenWali.akademik.profile');
+
+    // Rekap Progress Studi Akademik
 });
 
 // untuk untuk mahasiswa
