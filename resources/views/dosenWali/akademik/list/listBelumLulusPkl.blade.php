@@ -90,7 +90,7 @@
             <div class="navbar-toggle-btn" id="toggleSidenav">
                 <i class="fa fa-bars"></i>
             </div>
-            <span class="navbar-brand">Akademik Mahasiswa</span>
+            <span class="navbar-brand">List Belum Lulus PKL</span>
             <form action="/logout" method="post" class="navbar-brand">
                 @csrf
                 <button type="submit" class="btn btn-primary">Logout</button>
@@ -99,15 +99,48 @@
 
         <div class="sidenav" id="mySidenav">
 
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href=""><i class="fa fa-dashboard"></i> Biodata</a>
-            <a href=""><i class="fa fa-user"></i> IRS</a>
-            <a href=""><i class="fa fa-user"></i>KHS</a>
-            <a href=""><i class="fa fa-user"></i> PKL</a>
-            <a href=""><i class="fa fa-user"></i> Skripsi</a>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                            Rekap PKL Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                            Rekap Skripsi Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                            Rekap Status Mahasiswa</a>
+                    </li>
+                </ul>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                Verifikasi Progress Studi</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        IRS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        KHS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        PKL</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                        Skripsi</a>
+                </li>
+            </ul>
                 
         </div>
-
+        <div class="content" id="content">
+            <div id="dashboard" class="feature-content">
             <div class="container mt-5">
                 <div class="card">
                     <h2 class="text-center mt-3 mb-3">Daftar Mahasiswa yang Belum Lulus PKL</h2>
@@ -135,25 +168,15 @@
                 </div>
             </div>
             <button class="btn btn-primary mt-3" type="submit" style="float: right">Cetak</button>
-                            
-
-            <div id="irs" class="feature-content">
-                
             </div>
+            </div>              
 
-            <div id="khs" class="feature-content">
-            </div>
 
-            <div id="pkl" class="feature-content">
-            </div>
-
-            <div id="skripsi" class="feature-content">
-            </div>
 
             <script>
                 // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
                 window.onload = function() {
-                    showFeature('biodata');
+                    showFeature('dashboard');
                 };
 
                 document.getElementById('toggleSidenav').addEventListener('click', function() {

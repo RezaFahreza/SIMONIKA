@@ -3,7 +3,7 @@
 @section('contents')
 
     <head>
-        <title>Daftar KHS Mahasiswa</title>
+        <title>Akademik Mahasiswa</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
@@ -75,6 +75,20 @@
             .navbar-brand {
                 font-weight: 600;
             }
+
+            @media (max-width: 768px) {
+                table {
+                    width: 100%;
+                    margin-bottom: 1rem;
+                    color: #212529;
+                }
+
+                table th,
+                table td {
+                    padding: 0.75rem;
+                    text-align: center;
+                }
+            }
         </style>
     </head>
 
@@ -90,7 +104,7 @@
             <div class="navbar-toggle-btn" id="toggleSidenav">
                 <i class="fa fa-bars"></i>
             </div>
-            <span class="navbar-brand">Verifikasi</span>
+            <span class="navbar-brand">Akademik Mahasiswa</span>
             <form action="/logout" method="post" class="navbar-brand">
                 @csrf
                 <button type="submit" class="btn btn-primary">Logout</button>
@@ -137,70 +151,63 @@
                         Skripsi</a>
                 </li>
             </ul>
-
+                
         </div>
 
-        <div class="content" id="content">
-
-
+            <div class="container mt-5">
+                <div class="card">
+                    <h2 class="text-center mt-3 mb-3">Rekap Progress Skripsi Mahasiswa</h2>
+                    <div class="table-container mt-4">
+                        <div class="table-responsive">
+                        <div class="box" style="background-color: black; width: auto; height: 2px"></div>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <h2 class="text-center mb-3">Angkatan</h2>
+                                    <div class="box" style="background-color: black; width: auto; height: 2px"></div>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="text-center">2016</td>
+                                    <td colspan="2" class="text-center">2017</td>
+                                    <td colspan="2" class="text-center">2018</td>
+                                    <td colspan="2" class="text-center">2019</td>
+                                    <td colspan="2" class="text-center">2020</td>
+                                    <td colspan="2" class="text-center">2021</td>
+                                    <td colspan="2" class="text-center">2022</td>
+                                    <td colspan="2" class="text-center">2023</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                    <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary mt-3" type="submit" style="float: right">Cetak</button>
 
             <div id="irs" class="feature-content">
-
+                
             </div>
 
             <div id="khs" class="feature-content">
-                <div class="container mt-5">
-                    
-                    <div class="card">
-                        
-                        <h2 class="text-center mt-3">Daftar KHS Mahasiswa</h2>
-                        <div class="card-body">
-                            <hr />
-                            @if (Session::has('success'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ Session::get('success') }}
-                                </div>
-                            @endif
-                            <table class="table table-hover">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>No</th>
-                                        <th>NIM</th>
-                                        <th>Nama Mahasiswa</th>
-                                        <th>Semester Aktif</th>
-                                        <th>Status Validasi</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @if ($khsMahasiswa->count() > 0)
-                                        @foreach ($khsMahasiswa as $khs)
-                                            <tr>
-                                                <td class="align-middle">{{ $loop->iteration }}</td>
-                                                <td class="align-middle">{{ $khs->mahasiswa_id }}</td>
-                                                <td class="align-middle">{{ $khs->nama }}</td>
-                                                <td class="align-middle">{{ $khs->semester_aktif }}</td>
-                                                <td class="align-middle">{{ $khs->status_validasi }}</td>
-                                                <td class="align-middle">
-                                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                                        <a href="{{ route('dosenWali.verifikasi.khs.show', ['id' => $khs->id]) }}"
-                                                            type="button" class="btn btn-link">Detail</a>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    @else
-                                        <tr>
-                                            <td class="text-center" colspan="7">KHS tidak Ditemukan</td>
-                                        </tr>
-                                    @endif
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div id="pkl" class="feature-content">
@@ -212,7 +219,7 @@
             <script>
                 // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
                 window.onload = function() {
-                    showFeature('khs');
+                    showFeature('biodata');
                 };
 
                 document.getElementById('toggleSidenav').addEventListener('click', function() {
@@ -233,5 +240,4 @@
             </script>
 
     </body>
-
 @endsection
