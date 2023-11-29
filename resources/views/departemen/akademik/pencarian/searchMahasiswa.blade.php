@@ -245,14 +245,14 @@
                                 </tr>
                             </thead>
                             <tbody id="search-results">
-                                @if ($mahasiswaPerwalian->count() > 0)
-                                    @foreach ($mahasiswaPerwalian as $mahasiswa)
+                                @if ($mahasiswaDepartemen->count() > 0)
+                                    @foreach ($mahasiswaDepartemen as $mahasiswa)
                                         <tr>
                                             <td class="align-middle">{{ $mahasiswa->nim }}</td>
                                             <td class="align-middle">{{ $mahasiswa->nama }}</td>
                                             <td class="align-middle">{{ $mahasiswa->angkatan }}</td>
                                             <td class="align-middle"><a
-                                                    href="{{ route('dosenWali.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat
+                                                    href="{{ route('departemen.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat
                                                     Progress</a></td>
                                         </tr>
                                     @endforeach
@@ -295,7 +295,7 @@
 
                     $.ajax({
                         type: 'GET',
-                        url: '{{ route('dosenWali.akademik.search') }}',
+                        url: '{{ route('departemen.akademik.search') }}',
                         data: {
                             keyword: keyword
                         },
@@ -320,7 +320,7 @@
                                     <td class="align-middle">${results[i].nim}</td>
                                     <td class="align-middle">${results[i].nama}</td>
                                     <td class="align-middle">${results[i].angkatan}</td>
-                                    <td class="align-middle"><a href="{{ route('dosenWali.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat Progress</a></td>
+                                    <td class="align-middle"><a href="{{ route('departemen.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat Progress</a></td>
                                 </tr>
                             `);
                         }
