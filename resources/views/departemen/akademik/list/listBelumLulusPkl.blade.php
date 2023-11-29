@@ -100,17 +100,49 @@
         <div class="sidenav" id="mySidenav">
 
             <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href=""><i class="fa fa-dashboard"></i> Biodata</a>
-            <a href=""><i class="fa fa-user"></i> IRS</a>
-            <a href=""><i class="fa fa-user"></i>KHS</a>
-            <a href=""><i class="fa fa-user"></i> PKL</a>
-            <a href=""><i class="fa fa-user"></i> Skripsi</a>
+            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                            Rekap PKL Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                            Rekap Skripsi Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                            Rekap Status Mahasiswa</a>
+                    </li>
+                </ul>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                Verifikasi Progress Studi</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        IRS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        KHS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        PKL</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                        Skripsi</a>
+                </li>
+            </ul>
                 
         </div>
 
             <div class="container mt-5">
                 <div class="card">
-                    <h2 class="text-center mt-3 mb-3">Daftar Mahasiswa yang Sudah Lulus PKL</h2>
+                    <h2 class="text-center mt-3 mb-3">Daftar Mahasiswa yang Belum Lulus PKL</h2>
                     <div class="table-container mt-4">
                         <div class="table-responsive">
                         <div class="box" style="background-color: black; width: auto; height: 2px"></div>
@@ -125,10 +157,10 @@
                                 </tr>
                                 <tr>
                                     <td class="text-center">1</td>
-                                    <td class="text-center">2406012113003</td>
-                                    <td class="text-center">Rizky Akhmad Fahreza</td>
+                                    <td class="text-center">24060121140153</td>
+                                    <td class="text-center">Fikri Prasetya Nurhidayat</td>
                                     <td class="text-center">2020</td>
-                                    <td class="text-center">90</td>
+                                    <td class="text-center">50</td>
                                 </tr>
                         </table>
                     </div>

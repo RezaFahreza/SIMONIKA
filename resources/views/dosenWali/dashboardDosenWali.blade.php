@@ -103,6 +103,20 @@
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
                 Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                            Rekap PKL Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                            Rekap Skripsi Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                            Rekap Status Mahasiswa</a>
+                    </li>
+                </ul>
             <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
                 Verifikasi Progress Studi</a>
             <ul>
@@ -189,19 +203,7 @@
                     </div>
                 </div>
             </div>
-
-            <div id="akademik" class="feature-content">
-
-            </div>
-
-            <div id="reports" class="feature-content">
-
-            </div>
-
-            <div id="settings" class="feature-content">
-
-
-            </div>
+        </div>
 
             <script>
                 // Tampilkan konten Dashboard secara otomatis saat halaman dimuat

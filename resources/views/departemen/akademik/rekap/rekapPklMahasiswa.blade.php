@@ -114,11 +114,43 @@
         <div class="sidenav" id="mySidenav">
 
             <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href=""><i class="fa fa-dashboard"></i> Biodata</a>
-            <a href=""><i class="fa fa-user"></i> IRS</a>
-            <a href=""><i class="fa fa-user"></i>KHS</a>
-            <a href=""><i class="fa fa-user"></i> PKL</a>
-            <a href=""><i class="fa fa-user"></i> Skripsi</a>
+            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                Akademik</a>
+                <ul>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                            Rekap PKL Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                            Rekap Skripsi Mahasiswa</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                            Rekap Status Mahasiswa</a>
+                    </li>
+                </ul>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                Verifikasi Progress Studi</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        IRS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        KHS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        PKL</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                        Skripsi</a>
+                </li>
+            </ul>
                 
         </div>
 
@@ -155,7 +187,7 @@
                                     <td class="text-center">Sudah</td> <td class="text-center">Belum</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-center">< class="btn btn-link">45</></td> <td class="text-center"><a class="btn btn-link">87</a></td>
+                                    <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
                                     <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
                                     <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
                                     <td class="text-center"><a class="btn btn-link">45</a></td> <td class="text-center"><a class="btn btn-link">87</a></td>
