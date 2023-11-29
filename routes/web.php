@@ -33,20 +33,6 @@ use App\Http\Controllers\VerifikasiProgressStudiController;
 // });
 
 
-
-// jika user belom login
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'dologin']);
-});
-
-// jika sudah login
-Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4']], function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/redirect', [RedirectController::class, 'cek']);
-});
-
-
 // jika user belom login
 Route::group(['middleware' => 'guest'], function () {
     Route::get('/', [AuthController::class, 'login'])->name('login');
