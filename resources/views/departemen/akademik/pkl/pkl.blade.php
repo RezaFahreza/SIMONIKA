@@ -2,7 +2,6 @@
 
 @section('contents')
     <div class="container mt-5">
-
         <div class="card">
             <ul class="nav nav-tabs" id="myTabs">
                 <li class="nav-item">

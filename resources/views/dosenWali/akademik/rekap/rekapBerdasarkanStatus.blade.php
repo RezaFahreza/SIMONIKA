@@ -83,9 +83,9 @@
 <body>
 
     @if (session('success'))
-        <div class="alert alert-success mt-3">
-            {{ session('success') }}
-        </div>
+    <div class="alert alert-success mt-3">
+        {{ session('success') }}
+    </div>
     @endif
 
     <nav class="navbar navbar-dark bg-dark">
@@ -99,121 +99,124 @@
         </form>
     </nav>
 
-    <div class="sidenav" id="mySidenav">
+    <aside>
+        <div class="sidenav" id="mySidenav">
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                Akademik</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        Rekap PKL Mahasiswa</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        Rekap Skripsi Mahasiswa</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        Rekap Status Mahasiswa</a>
+                </li>
+            </ul>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                Verifikasi Progress Studi</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        IRS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        KHS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        PKL</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                        Skripsi</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
 
-        <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
-        <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-        <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
-            Akademik</a>
-        <ul>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                    Rekap PKL Mahasiswa</a>
-            </li>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
-                    Rekap Skripsi Mahasiswa</a>
-            </li>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
-                    Rekap Status Mahasiswa</a>
-            </li>
-        </ul>
-        <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-            Verifikasi Progress Studi</a>
-        <ul>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                    IRS</a>
-            </li>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
-                    KHS</a>
-            </li>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
-                    PKL</a>
-            </li>
-            <li>
-                <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
-                    Skripsi</a>
-            </li>
-        </ul>
-    </div>
+    <main>
+        <div class="content" id="content">
+            <div id="dashboard" class="feature-content">
+                <div class="container mt-5">
+                    <h2>Rekap Mahasiswa</h2>
 
-    <div class="content" id="content">
-        <div id="dashboard" class="feature-content">
-            <div class="container mt-5">
-                <h2>Rekap Mahasiswa</h2>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#aktif">Aktif</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#nonaktif">Non-Aktif</a>
+                        </li>
+                    </ul>
 
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" data-toggle="tab" href="#aktif">Aktif</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#nonaktif">Non-Aktif</a>
-                    </li>
-                </ul>
-
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div id="aktif" class="container tab-pane active"><br>
-                        <h3>Mahasiswa Aktif</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>NIM</th>
-                                    <th>Nama</th>
-                                    <th>Angkatan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Data mahasiswa aktif per angkatan -->
-                                <tr>
-                                    <td>123456</td>
-                                    <td>John Doe</td>
-                                    <td>2021</td>
-                                </tr>
-                                <tr>
-                                    <td>789012</td>
-                                    <td>Jane Smith</td>
-                                    <td>2022</td>
-                                </tr>
-                                <!-- Tambahkan baris sesuai kebutuhan -->
-                            </tbody>
-                        </table>
-                    </div>
-                    <div id="nonaktif" class="container tab-pane fade"><br>
-                        <h3>Mahasiswa Non-Aktif</h3>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>NIM</th>
-                                    <th>Nama</th>
-                                    <th>Angkatan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Data mahasiswa non-aktif per angkatan -->
-                                <tr>
-                                    <td>345678</td>
-                                    <td>Alice Johnson</td>
-                                    <td>2020</td>
-                                </tr>
-                                <tr>
-                                    <td>901234</td>
-                                    <td>Bob Wilson</td>
-                                    <td>2021</td>
-                                </tr>
-                                <!-- Tambahkan baris sesuai kebutuhan -->
-                            </tbody>
-                        </table>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div id="aktif" class="container tab-pane active"><br>
+                            <h3>Mahasiswa Aktif</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>Angkatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data mahasiswa aktif per angkatan -->
+                                    <tr>
+                                        <td>123456</td>
+                                        <td>John Doe</td>
+                                        <td>2021</td>
+                                    </tr>
+                                    <tr>
+                                        <td>789012</td>
+                                        <td>Jane Smith</td>
+                                        <td>2022</td>
+                                    </tr>
+                                    <!-- Tambahkan baris sesuai kebutuhan -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="nonaktif" class="container tab-pane fade"><br>
+                            <h3>Mahasiswa Non-Aktif</h3>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>NIM</th>
+                                        <th>Nama</th>
+                                        <th>Angkatan</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data mahasiswa non-aktif per angkatan -->
+                                    <tr>
+                                        <td>345678</td>
+                                        <td>Alice Johnson</td>
+                                        <td>2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>901234</td>
+                                        <td>Bob Wilson</td>
+                                        <td>2021</td>
+                                    </tr>
+                                    <!-- Tambahkan baris sesuai kebutuhan -->
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </main>
 
     <script>
         // Tampilkan konten Dashboard secara otomatis saat halaman dimuat

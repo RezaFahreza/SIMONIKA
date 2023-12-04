@@ -97,8 +97,8 @@
             </form>
         </nav>
 
+<aside>
         <div class="sidenav" id="mySidenav">
-
             <h2 style="color: #fff; text-align: center; padding: 15px;">Departemen</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
@@ -137,9 +137,10 @@
                         Skripsi</a>
                 </li>
             </ul>
-
         </div>
+</aside>
 
+<main>
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
                 <div class="container">
@@ -203,19 +204,7 @@
                     </div>
                 </div>
             </div>
-
-            <div id="akademik" class="feature-content">
-
-            </div>
-
-            <div id="reports" class="feature-content">
-
-            </div>
-
-            <div id="settings" class="feature-content">
-
-
-            </div>
+        </main>
 
             <script>
                 // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
