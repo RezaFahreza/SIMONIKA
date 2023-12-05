@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Departemen;
 use App\Models\Mahasiswa;
+use App\Models\PKL;
+use App\Models\Skripsi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -74,5 +76,65 @@ class AkademikDepartemenController extends Controller
             'mahasiswa' => $mahasiswa, 'irsMahasiswa' => $irsMahasiswa,
             'khsMahasiswa' => $khsMahasiswa, 'pkl' => $pkl, 'skripsi' => $skripsi
         ]);
+    }
+
+    // REKAP
+    // pkl
+    public function indexRekapPKL(){
+        $PKL = PKL::with('mahasiswa')->get();
+
+        $RekapPklPerAngkatan = $PKL->groupBy('mahasiswa.angkatan')->map(function ($items){
+            return [
+                'jumlah_ambil' => $items->where('status', 'lulus')->count(),
+                'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
+            ];
+        });
+        // dd($RekapPklPerAngkatan);
+        return view('departemen.akademik.rekap.rekapPklMahasiswa', compact('RekapPklPerAngkatan'));
+    }
+
+    public function showRekapPKL($angkatan, $status){
+        $MahasiswaPKL = Mahasiswa::where('angkatan', $angkatan)->leftJoin('pkl', function ($join) use ($status){
+            $join->on('mahasiswa.nim', '=', 'pkl.mahasiswa_id')->where('pkl.status', '=', $status);
+        })
+        ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'pkl.nilai_pkl as nilai')->get();
+
+        // dd($MahasiswaPKL);
+        return view('departemen.akademik.list.listSudahLulusPkl', compact('MahasiswaPKL'));
+
+    }
+
+
+    // Skripsi
+    public function indexRekapSkripsi()
+    {
+        $Skripsi = Skripsi::with('mahasiswa')->get();
+
+        $RekapSkripsiPerAngkatan = $Skripsi->groupBy('mahasiswa.angkatan')->map(function ($items) {
+            return [
+                'jumlah_ambil' => $items->where('status', 'lulus')->count(),
+                'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
+            ];
+        });
+        // dd($RekapSkripsiPerAngkatan);
+        return view('departemen.akademik.rekap.rekapSkripsiMahasiswa', compact('RekapSkripsiPerAngkatan'));
+    }
+
+    public function showRekapSkripsi($angkatan, $status)
+    {
+        $MahasiswaSkripsi = Mahasiswa::where('angkatan', $angkatan)->leftJoin('skripsi', function ($join) use ($status) {
+            $join->on('mahasiswa.nim', '=', 'skripsi.mahasiswa_id')->where('skripsi.status', '=', $status);
+        })
+            ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'skripsi.nilai_skripsi as nilai')->get();
+
+        // dd($MahasiswaSkripsi);
+        return view('', compact('MahasiswaSkripsi'));
+    }
+
+
+    // Status
+    public function indexRekapStatus(){
+
+        return view('departemen.akademik.rekap.rekapBerdasarkanStatus');
     }
 }
