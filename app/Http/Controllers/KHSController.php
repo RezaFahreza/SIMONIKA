@@ -25,7 +25,7 @@ class KHSController extends Controller
             ->orderBy('semester_aktif', 'asc')
             ->get();
 
-        return view('mahasiswa.khs.index')->with(compact('mahasiswa', 'khsMahasiswa'));
+        return view('mahasiswa.akademik.khs.index')->with(compact('mahasiswa', 'khsMahasiswa'));
     }
 
     /**
@@ -37,7 +37,7 @@ class KHSController extends Controller
         $user = Auth::user();
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
-        return view('mahasiswa.khs.create')->with(compact('mahasiswa'));
+        return view('mahasiswa.akademik.khs.create')->with(compact('mahasiswa'));
     }
 
     /**
@@ -95,7 +95,7 @@ class KHSController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $khs = KHS::findOrFail($id);
-        return view('mahasiswa.khs.show', compact('mahasiswa', 'khs'));
+        return view('mahasiswa.akademik.khs.show', compact('mahasiswa', 'khs'));
     }
 
     /**
@@ -108,7 +108,7 @@ class KHSController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $khs = KHS::findOrFail($id);
-        return view('mahasiswa.khs.edit', compact('mahasiswa', 'khs'));
+        return view('mahasiswa.akademik.khs.edit', compact('mahasiswa', 'khs'));
     }
 
     /**

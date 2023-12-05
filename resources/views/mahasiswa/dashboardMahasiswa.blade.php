@@ -155,7 +155,7 @@
                                     <div class="card">
                                         <img src="https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg" alt="Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug." class="card-img-top">
                                         <div class="card-body text-center">
-                                            <a href="#" class="card-title">Profile</a>
+                                            <a href="{{route('mahasiswa.profile')}}" class="card-title">Profile</a>
                                             <p class="card-text text-gray-600">Edit Profile</p>
                                         </div>
                                     </div>

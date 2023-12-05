@@ -150,6 +150,21 @@ class MahasiswaController extends Controller
             return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa berhasil diperbarui.');
         }
 }
+
+//  Profil Mahasiswa
+    public function showProfile(){
+
+        return view('mahasiswa.profile.profileMahasiswa');
+    }
+
+    public function editProfile(){
+        
+        return view('mahasiswa.profile.editProfile');
+    }
+
+    public function updateProfile(Request $request){
+
+    }
     public function store(Request $request, )
     {
         //

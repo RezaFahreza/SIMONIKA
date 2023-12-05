@@ -26,7 +26,7 @@ class IRSController extends Controller
             ->orderBy('semester_aktif','asc')
             ->get();
 
-        return view('mahasiswa.irs.index')->with(compact('mahasiswa', 'irsMahasiswa'));
+        return view('mahasiswa.akademik.irs.index')->with(compact('mahasiswa', 'irsMahasiswa'));
     }
 
     /**
@@ -37,7 +37,7 @@ class IRSController extends Controller
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $user = Auth::user();
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
-        return view('mahasiswa.irs.create')->with(compact('mahasiswa'));
+        return view('mahasiswa.akademik.irs.create')->with(compact('mahasiswa'));
     }
 
     /**
@@ -89,7 +89,7 @@ class IRSController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $irs = IRS::findOrFail($id);
-        return view('mahasiswa.irs.show',compact('mahasiswa', 'irs'));
+        return view('mahasiswa.akademik.irs.show',compact('mahasiswa', 'irs'));
     }
 
     /**
@@ -102,7 +102,7 @@ class IRSController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $irs = IRS::findOrFail($id);
-        return view('mahasiswa.irs.edit', compact('mahasiswa', 'irs'));
+        return view('mahasiswa.akademik.irs.edit', compact('mahasiswa', 'irs'));
     }
 
     /**

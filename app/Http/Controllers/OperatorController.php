@@ -18,6 +18,21 @@ class OperatorController extends Controller
         return view('operator.dashboardOperator',compact('operator'));
     }
 
+    public function showProfile()
+    {
+
+        return view('operator.profile.profileOperator');
+    }
+
+    public function editProfile()
+    {
+
+        return view('operator.profile.editProfile');
+    }
+
+    public function updateProfile(Request $request)
+    {
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function generateUserMahasiswa(){
         $dosenWaliList = DosenWali::all();
-        return view('operator.generateAkunMahasiswa',['dosenWaliList' => $dosenWaliList]);
+        return view('operator.generate.generateAkunMahasiswa',['dosenWaliList' => $dosenWaliList]);
     }
 
     public function storeUserMahasiswa(Request $request){

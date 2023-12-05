@@ -25,7 +25,7 @@ class SkripsiController extends Controller
             ->get();
 
         $skripsi = $skripsiMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
-        return view('mahasiswa.skripsi.index')->with(compact('mahasiswa', 'skripsi'));
+        return view('mahasiswa.akademik.skripsi.index')->with(compact('mahasiswa', 'skripsi'));
     }
 
     /**
@@ -91,7 +91,7 @@ class SkripsiController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $skripsi = Skripsi::findOrFail($id);
-        return view('mahasiswa.skripsi.edit', ['mahasiswa' => $mahasiswa, 'skripsi' => $skripsi]);
+        return view('mahasiswa.akademik.skripsi.edit', ['mahasiswa' => $mahasiswa, 'skripsi' => $skripsi]);
     }
 
     /**
