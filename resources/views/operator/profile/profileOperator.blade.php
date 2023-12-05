@@ -104,7 +104,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Profile Dosen Wali</span>
+        <span class="navbar-brand">Profile Operator</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -113,7 +113,7 @@
 
     <aside>
         <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Operator</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
                 Akademik</a>
@@ -159,7 +159,7 @@
             <div id="dashboard" class="feature-content">
                 <div class="container mt-5">
                     <div class="card">
-                        <h2 class="text-center mt-3">Profile Dosen Wali</h2>
+                        <h2 class="text-center mt-3">Profile Operator</h2>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">

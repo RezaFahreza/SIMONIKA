@@ -101,43 +101,43 @@
         <div class="sidenav" id="mySidenav">
             <h2 style="color: #fff; text-align: center; padding: 15px;">Operator</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-search"></i>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-id-card"></i>
                 Generate Akun Mahasiswa</a>
             <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-search"></i>
                 Pencarian Mahasiswa</a>
-            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-graduation-cap"></i>
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-file-text"></i>
                         Rekap PKL Mahasiswa</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-file-text"></i>
                         Rekap Skripsi Mahasiswa</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-file-text"></i>
                         Rekap Status Mahasiswa</a>
                 </li>
             </ul>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-check"></i>
                 Verifikasi Progress Studi</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-file-text"></i>
                         IRS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-file-text"></i>
                         KHS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-file-text"></i>
                         PKL</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-file-text"></i>
                         Skripsi</a>
                 </li>
             </ul>

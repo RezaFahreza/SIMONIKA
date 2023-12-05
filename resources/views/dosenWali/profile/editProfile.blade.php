@@ -104,7 +104,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Profile Dosen Wali</span>
+        <span class="navbar-brand">Edit Profile Dosen Wali</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -159,63 +159,69 @@
             <div id="dashboard" class="feature-content">
                 <div class="container mt-5">
                     <div class="card">
-                        <h2 class="text-center mt-3">Profile Dosen Wali</h2>
+                        <h2 class="text-center mt-3">Profile Departemen</h2>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
                                     <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Mahasiswa" class="img-fluid">
-
                                 </div>
+                                <!-- Inside the div with class="col-md-8" -->
                                 <div class="col-md-8">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                                <td>Nama:</td>
-                                                <td>Risqy</td>
-                                            </tr>
-                                            <tr>
-                                                <td>NIM:</td>
-                                                <td>123456</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alamat:</td>
-                                                <td>Jl. Contoh Alamat No. 123</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kab/Kota:</td>
-                                                <td>Contoh Kota</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Propinsi:</td>
-                                                <td>Contoh Propinsi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angkatan:</td>
-                                                <td>2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jalur Masuk:</td>
-                                                <td>SNMPTN</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email:</td>
-                                                <td>mahasiswa@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Handphone:</td>
-                                                <td>081234567890</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td>Aktif</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <form action="#" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="nama">Nama:</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" value="Risqy">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nim">NIM:</label>
+                                            <input type="text" class="form-control" id="nim" name="nim" value="123456" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alamat">Alamat:</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" value="Jl. Contoh Alamat No. 123">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="kab_kota">Kab/Kota:</label>
+                                            <input type="text" class="form-control" id="kab_kota" name="kab_kota" value="Contoh Kota">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="propinsi">Propinsi:</label>
+                                            <input type="text" class="form-control" id="propinsi" name="propinsi" value="Contoh Propinsi">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="angkatan">Angkatan:</label>
+                                            <input type="text" class="form-control" id="angkatan" name="angkatan" value="2020" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="jalur_masuk">Jalur Masuk:</label>
+                                            <input type="text" class="form-control" id="jalur_masuk" name="jalur_masuk" value="SNMPTN" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email:</label>
+                                            <input type="email" class="form-control" id="email" name="email" value="mahasiswa@email.com" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="handphone">Handphone:</label>
+                                            <input type="text" class="form-control" id="handphone" name="handphone" value="081234567890" disabled>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="status">Status:</label>
+                                            <select class="form-control" id="status" name="status">
+                                                <option value="Aktif" selected>Aktif</option>
+                                                <option value="Tidak Aktif">Tidak Aktif</option>
+                                            </select>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12 text-right">
+                                                <button type="submit" class="btn btn-primary">Simpan</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" style="float: right">Edit</button>
                 </div>
             </div>
         </div>
