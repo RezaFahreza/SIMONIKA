@@ -77,3 +77,5 @@ class AkademikDosenWaliController extends Controller
     'khsMahasiswa'=>$khsMahasiswa, 'pkl'=>$pkl, 'skripsi'=>$skripsi]);
     }
 }
+
+

@@ -46,19 +46,6 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4']], function () {
 });
 
 
-// jika user belom login
-Route::group(['middleware' => 'guest'], function () {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::post('/', [AuthController::class, 'dologin']);
-});
-
-// jika sudah login
-Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4']], function () {
-    Route::post('/logout', [AuthController::class, 'logout']);
-    Route::get('/redirect', [RedirectController::class, 'cek']);
-});
-
-
 // untuk operator
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/operator/dashboard', [OperatorController::class, 'index'])->name('operator.dashboard');
@@ -78,6 +65,16 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/departemen/akademik/profile/{nim}', [AkademikDepartemenController::class, 'indexAkademik'])->name('departemen.akademik.profile');
 
     // Rekap Progress Studi Akademik
+    // Rekap PKL
+    Route::get('/departemen/rekap/pkl', [AkademikDepartemenController::class, 'indexRekapPKL'])->name('departemen.rekap.pkl');
+    Route::get('/departemen/rekap/pkl/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapPKL'])->name('departemen.rekap.pkl.list');
+
+    // Rekap Skripsi
+    Route::get('/departemen/rekap/skripsi', [AkademikDepartemenController::class, 'indexRekapSkripsi'])->name('departemen.rekap.skripsi');
+    Route::get('/departemen/rekap/skripsi/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapSkripsi'])->name('departemen.rekap.skripsi.list');
+
+    // Rekap Status
+    Route::get('/departemen/rekap/status', [AkademikDepartemenController::class, 'indexRekapStatus'])->name('departemen.rekap.status');
 });
 
 // untuk untuk dosenWali
