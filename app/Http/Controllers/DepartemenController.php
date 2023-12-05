@@ -16,7 +16,7 @@ class DepartemenController extends Controller
         if (Auth::check()) {
             $user = Auth::user(); // Dapatkan user yang sedang login
             $departemen = Departemen::where('user_id', $user->id)->first();
-            return view('departemen.dashboard',compact('departemen'));
+            return view('departemen.dashboardDepartemen',compact('departemen'));
         } else {
             // Redirect atau berikan pesan jika user belum login
             return redirect()->route('login')->with('message', 'Anda harus login terlebih dahulu.');

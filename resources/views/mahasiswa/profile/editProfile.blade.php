@@ -114,40 +114,26 @@
     <aside>
         <div class="sidenav" id="mySidenav">
             <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('mahasiswa.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                        Rekap PKL Mahasiswa</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
-                        Rekap Skripsi Mahasiswa</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
-                        Rekap Status Mahasiswa</a>
-                </li>
-            </ul>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                Verifikasi Progress Studi</a>
-            <ul>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
                         IRS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
                         KHS</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
                         PKL</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
                         Skripsi</a>
                 </li>
             </ul>
@@ -188,8 +174,44 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="propinsi">Propinsi:</label>
-                                            <input type="text" class="form-control" id="propinsi" name="propinsi" value="Contoh Propinsi">
+                                            <select class="form-control" id="propinsi" name="propinsi">
+                                                <option value="">Pilih Propinsi</option>
+                                                <option value="Aceh">Aceh</option>
+                                                <option value="Sumatera Utara">Sumatera Utara</option>
+                                                <option value="Sumatera Barat">Sumatera Barat</option>
+                                                <option value="Riau">Riau</option>
+                                                <option value="Jambi">Jambi</option>
+                                                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                                                <option value="Bengkulu">Bengkulu</option>
+                                                <option value="Lampung">Lampung</option>
+                                                <option value="Kepulauan Bangka Belitung">Kepulauan Bangka Belitung</option>
+                                                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                                                <option value="DKI Jakarta">DKI Jakarta</option>
+                                                <option value="Jawa Barat">Jawa Barat</option>
+                                                <option value="Jawa Tengah">Jawa Tengah</option>
+                                                <option value="DI Yogyakarta">DI Yogyakarta</option>
+                                                <option value="Jawa Timur">Jawa Timur</option>
+                                                <option value="Banten">Banten</option>
+                                                <option value="Bali">Bali</option>
+                                                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                                                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                                                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                                                <option value="Kalimantan Tengah">Kalimantan Tengah</option>
+                                                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                                                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                                                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                                                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                                                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                                                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                                                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                                                <option value="Gorontalo">Gorontalo</option>
+                                                <option value="Maluku">Maluku</option>
+                                                <option value="Maluku Utara">Maluku Utara</option>
+                                                <option value="Papua Barat">Papua Barat</option>
+                                                <option value="Papua">Papua</option>
+                                            </select>
                                         </div>
+
                                         <div class="form-group">
                                             <label for="angkatan">Angkatan:</label>
                                             <input type="text" class="form-control" id="angkatan" name="angkatan" value="2020" disabled>

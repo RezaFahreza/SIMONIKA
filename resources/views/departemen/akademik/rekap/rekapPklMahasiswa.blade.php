@@ -104,7 +104,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Akademik Mahasiswa</span>
+        <span class="navbar-brand">Rekap PKL Mahasiswa</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -113,112 +113,103 @@
 
     <aside>
         <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Departemen</h2>
+            <a href="{{ route('departemen.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('departemen.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="{{ route('departemen.akademik') }}"><i class="fa fa-user"></i>
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('departemen.akademik.search') }}"><i class="fa fa-user"></i>
+                        Pencarian Mahasiswa</a>
+                </li>
+                <li>
+                    <a href="{{ route('departemen.rekap.pkl') }}"><i class="fa fa-user"></i>
                         Rekap PKL Mahasiswa</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('departemen.rekap.skripsi') }}"><i class="fa fa-user"></i>
                         Rekap Skripsi Mahasiswa</a>
                 </li>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                    <a href="{{ route('departemen.rekap.status') }}"><i class="fa fa-user"></i>
                         Rekap Status Mahasiswa</a>
-                </li>
-            </ul>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                Verifikasi Progress Studi</a>
-            <ul>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                        IRS</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
-                        KHS</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
-                        PKL</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
-                        Skripsi</a>
                 </li>
             </ul>
         </div>
     </aside>
 
     <main>
-        <div class="container mt-5">
-            <div class="card">
-                <h2 class="text-center mt-3 mb-3">Rekap Progress PKL Mahasiswa</h2>
-                <div class="table-container mt-4">
-                    <div class="table-responsive">
-                        <div class="box" style="background-color: black; width: auto; height: 2px"></div>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <h2 class="text-center mb-3">Angkatan</h2>
-                                    <div class="box" style="background-color: black; width: auto; height: 2px"></div>
-                                </tr>
-                                <tr>
-                                    <td colspan="2" class="text-center">2016</td>
-                                    <td colspan="2" class="text-center">2017</td>
-                                    <td colspan="2" class="text-center">2018</td>
-                                    <td colspan="2" class="text-center">2019</td>
-                                    <td colspan="2" class="text-center">2020</td>
-                                    <td colspan="2" class="text-center">2021</td>
-                                    <td colspan="2" class="text-center">2022</td>
-                                    <td colspan="2" class="text-center">2023</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                    <td class="text-center">Sudah</td>
-                                    <td class="text-center">Belum</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                    <td class="text-center"><a class="btn btn-link">45</a></td>
-                                    <td class="text-center"><a class="btn btn-link">87</a></td>
-                                </tr>
-                        </table>
+        <div class="content" id="content">
+            <div id="biodata" class="feature-content">
+                <div class="container mt-5">
+                    <div class="card">
+                        <h2 class="text-center mt-3 mb-3">Rekap Progress PKL Mahasiswa</h2>
+                        <div class="table-container mt-4">
+                            <div class="table-responsive">
+                                <div class="box" style="background-color: black; width: auto; height: 2px"></div>
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <h2 class="text-center mb-3">Angkatan</h2>
+                                            <div class="box" style="background-color: black; width: auto; height: 2px"></div>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-center">2016</td>
+                                            <td colspan="2" class="text-center">2017</td>
+                                            <td colspan="2" class="text-center">2018</td>
+                                            <td colspan="2" class="text-center">2019</td>
+                                            <td colspan="2" class="text-center">2020</td>
+                                            <td colspan="2" class="text-center">2021</td>
+                                            <td colspan="2" class="text-center">2022</td>
+                                            <td colspan="2" class="text-center">2023</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                            <td class="text-center">Sudah</td>
+                                            <td class="text-center">Belum</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                            <td class="text-center"><a class="btn btn-link">45</a></td>
+                                            <td class="text-center"><a class="btn btn-link">87</a></td>
+                                        </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
+
+                    <button class="btn btn-primary mt-3" type="submit" style="float: right">Cetak</button>
                 </div>
             </div>
-
-            <button class="btn btn-primary mt-3" type="submit" style="float: right">Cetak</button>
+        </div>
     </main>
 
     <script>
