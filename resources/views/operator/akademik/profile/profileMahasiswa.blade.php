@@ -104,7 +104,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Profile Dosen Wali</span>
+        <span class="navbar-brand">Profile Mahasiswa</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -113,7 +113,7 @@
 
     <aside>
         <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Operator</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
             <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
                 Akademik</a>
@@ -159,7 +159,24 @@
             <div id="dashboard" class="feature-content">
                 <div class="container mt-5">
                     <div class="card">
-                        <h2 class="text-center mt-3">Profile Dosen Wali</h2>
+                        <ul class="nav nav-tabs" id="myTabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="irs-tab" data-toggle="tab" href="#irs">IRS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="khs-tab" data-toggle="tab" href="#khs">KHS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pkl-tab" data-toggle="tab" href="#pkl">PKL</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="skripsi-tab" data-toggle="tab" href="#skripsi">Skripsi</a>
+                            </li>
+                        </ul>
+                        <h2 class="text-center">Profil Mahasiswa</h2>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
@@ -167,12 +184,9 @@
 
                                 </div>
                                 <div class="col-md-8">
+                                    <h3>Risqy</h3>
                                     <table class="table">
                                         <tbody>
-                                            <tr>
-                                                <td>Nama:</td>
-                                                <td>Risqy</td>
-                                            </tr>
                                             <tr>
                                                 <td>NIM:</td>
                                                 <td>123456</td>
@@ -215,7 +229,6 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" style="float: right">Edit</button>
                 </div>
             </div>
         </div>

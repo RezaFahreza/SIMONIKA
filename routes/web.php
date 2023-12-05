@@ -29,9 +29,8 @@ use App\Http\Controllers\VerifikasiProgressStudiController;
 */
 
 // Route::get('/', function () {
-//     return view('dosenWali.akademik.rekap.rekapPklMahasiswa');
+//     return view('departemen.profile.editProfile');
 // });
-
 
 
 // jika user belom login

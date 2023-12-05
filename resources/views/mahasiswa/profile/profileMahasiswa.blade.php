@@ -229,6 +229,7 @@
                             </div>
                         </div>
                     </div>
+                    <button class="btn btn-primary" type="submit" style="float: right">Edit</button>
                 </div>
             </div>
         </div>
