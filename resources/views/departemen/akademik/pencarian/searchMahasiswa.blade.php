@@ -143,7 +143,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Dashboard</span>
+        <span class="navbar-brand">Search Mahasiswa</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>

@@ -99,9 +99,11 @@
 
     <aside>
         <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Dashboard Mahasiswa</h2>
             <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik', ['mahasiswa' => $mahasiswa]) }}"><i class="fa fa-user"></i>
+            <a href="{{ route('mahasiswa.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
                 Akademik</a>
             <ul>
                 <li>

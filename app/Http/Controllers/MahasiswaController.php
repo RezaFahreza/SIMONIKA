@@ -77,7 +77,7 @@ class MahasiswaController extends Controller
 
         $targetMahasiswa = $data->firstWhere('user_id', $user->id);
 
-        return view('mahasiswa.updateDataUserMahasiswaBaru', ['targetMahasiswa' => $targetMahasiswa]);
+        return view('mahasiswa.updateDataDiri.updateDataUserMahasiswaBaru', ['targetMahasiswa' => $targetMahasiswa]);
     }
 
     public function dashboard()

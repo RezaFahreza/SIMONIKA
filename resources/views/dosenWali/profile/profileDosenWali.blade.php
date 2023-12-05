@@ -115,23 +115,17 @@
         <div class="sidenav" id="mySidenav">
             <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+            <a href="{{ route('dosenWali.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
-                        Rekap PKL Mahasiswa</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
-                        Rekap Skripsi Mahasiswa</a>
-                </li>
-                <li>
-                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
-                        Rekap Status Mahasiswa</a>
+                    <a href="{{ route('dosenWali.akademik.search') }}"><i class="fa fa-user"></i>
+                        Pencarian Mahasiswa</a>
                 </li>
             </ul>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+            <a href="#"><i class="fa fa-user"></i>
                 Verifikasi Progress Studi</a>
             <ul>
                 <li>
@@ -159,7 +153,6 @@
             <div id="dashboard" class="feature-content">
                 <div class="container mt-5">
                     <div class="card">
-                        <h2 class="text-center mt-3">Profile Dosen Wali</h2>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
@@ -215,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="{{route('dosenWali.profile.edit')}}" class="btn btn-primary" style="float: right">Edit</a >
+                    <a href="{{route('dosenWali.profile.edit')}}" class="btn btn-primary" style="float: right">Edit</a>
                 </div>
             </div>
         </div>

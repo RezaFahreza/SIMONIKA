@@ -90,7 +90,7 @@
         <div class="navbar-toggle-btn" id="toggleSidenav">
             <i class="fa fa-bars"></i>
         </div>
-        <span class="navbar-brand">Mahasiswa</span>
+        <span class="navbar-brand">Dashboard Mahasiswa</span>
         <form action="/logout" method="post" class="navbar-brand">
             @csrf
             <button type="submit" class="btn btn-primary">Logout</button>
@@ -99,14 +99,13 @@
 
     <aside>
         <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Dashboard Mahasiswa</h2>
-            <a href="javascript:void(0);" onclick="showFeature('dashboard')"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('mahasiswa.dashboard.akademik', ['mahasiswa' => $mahasiswa]) }}"><i class="fa fa-user"></i>
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
+            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('mahasiswa.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
                 Akademik</a>
             <ul>
-                <li>
-                    <a href="{{ route('mahasiswa.dashboard.akademik') }}"><i class="fa fa-dashboard"></i> Biodata</a>
-                </li>
                 <li>
                     <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
                         IRS</a>
@@ -131,7 +130,6 @@
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
                 <div class="container">
-                    <h3 class="text-center mt-3">Dashboard Mahasiswa</h3>
                     <div class="mx-auto py-6 sm:px-6 lg:px-8">
                         <div class="container px-4 py-5">
                             <div class="card px-4 py-2">

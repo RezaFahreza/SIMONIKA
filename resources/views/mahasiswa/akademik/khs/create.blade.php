@@ -6,26 +6,18 @@
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik') }}">Biodata Akademik</a>
+                    <a class="nav-link" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik.irs', ['mahasiswa' => $mahasiswa]) }}">IRS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.irs') }}">IRS</a>
+                    <a class="nav-link active" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik.khs', ['mahasiswa' => $mahasiswa]) }}">KHS</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.khs') }}">KHS</a>
+                    <a class="nav-link" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik.pkl', ['mahasiswa' => $mahasiswa]) }}">PKL</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.pkl') }}">PKL</a>
+                    <a class="nav-link" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik.skripsi', ['mahasiswa' => $mahasiswa]) }}">Skripsi</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.skripsi') }}">Skripsi</a>
-                </li>
-                <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary">Kembali Ke
-                    Dashboard</a>
+                <a href="{{ route('mahasiswa.dashboard.akademik.khs', ['mahasiswa' => $mahasiswa]) }}" class="btn btn-primary">Kembali</a>
             </ul>
         </div>
     </nav>

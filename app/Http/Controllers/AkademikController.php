@@ -15,7 +15,7 @@ class AkademikController extends Controller
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
-        return view('mahasiswa.akademik',['mahasiswa'=>$mahasiswa]);
+        return view('mahasiswa.akademik.biodata.biodata',['mahasiswa'=>$mahasiswa]);
     }
     
 }
