@@ -26,7 +26,7 @@ class PKLController extends Controller
 
         $pkl = $pklMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
 
-        return view('mahasiswa.pkl.index')->with(compact('mahasiswa', 'pkl'));
+        return view('mahasiswa.akademik.pkl.index')->with(compact('mahasiswa', 'pkl'));
     }
 
     /**
@@ -88,7 +88,7 @@ class PKLController extends Controller
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
         $pkl = PKL::findOrFail($id);
-        return view('mahasiswa.pkl.edit', ['mahasiswa' => $mahasiswa, 'pkl' => $pkl]);
+        return view('mahasiswa.akademik.pkl.edit', ['mahasiswa' => $mahasiswa, 'pkl' => $pkl]);
     }
 
     /**

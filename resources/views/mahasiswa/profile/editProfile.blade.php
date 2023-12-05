@@ -169,6 +169,7 @@
                                 <div class="col-md-8">
                                     <form action="#" method="POST">
                                         @csrf
+                                        @method('PUT')
                                         <div class="form-group">
                                             <label for="nama">Nama:</label>
                                             <input type="text" class="form-control" id="nama" name="nama" value="Risqy">

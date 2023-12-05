@@ -24,10 +24,20 @@ class DepartemenController extends Controller
         
     }
 
-    public function profilDepartemen(){
+    public function showProfile()
+    {
 
+        return view('departemen.profile.profileDepartemen');
+    }
 
-        return view();
+    public function editProfile()
+    {
+
+        return view('departemen.profile.editProfile');
+    }
+
+    public function updateProfile(Request $request)
+    {
     }
 
     

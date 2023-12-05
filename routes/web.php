@@ -49,15 +49,27 @@ Route::group(['middleware' => ['auth', 'checkrole:1,2,3,4']], function () {
 // untuk operator
 Route::group(['middleware' => ['auth', 'checkrole:1']], function () {
     Route::get('/operator/dashboard', [OperatorController::class, 'index'])->name('operator.dashboard');
+
+    // Profil
+    Route::get('/operator/profile', [OperatorController::class, 'showProfile'])->name('operator.profile');
+    Route::get('/operator/profile/edit', [OperatorController::class, 'editProfile'])->name('operator.profile.edit');
+    Route::put('/operator/profile/update', [OperatorController::class, 'updateProfile'])->name('operator.profile.update');
+
     Route::get('/operator/generateakunmahasiswa', [UserController::class, 'generateUserMahasiswa'])->name('generate.user.mahasiswa');
     Route::post('/operator', [UserController::class, 'storeUserMahasiswa'])->name('store.user.mahasiswa');
     Route::post('/operator/storeexcel', [UserController::class, 'storeUserMahasiswaExcel'])->name('store.user.mahasiswa.excel');
+
+    
 });
 
 // untuk untuk departemen
 Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/departemen/dashboard', [DepartemenController::class, 'index'])->name('departemen.dashboard');
-    Route::get('/departemen/profile', [DepartemenController::class, 'profilDepartemen'])->name('departemen.profile');
+
+    // Profil
+    Route::get('/departemen/profile', [DepartemenController::class, 'showProfile'])->name('departemen.profile');
+    Route::get('/departemen/profile/edit', [DepartemenController::class, 'editProfile'])->name('departemen.profile.edit');
+    Route::put('/departemen/profile/update', [DepartemenController::class, 'updateProfile'])->name('departemen.profile.update');
 
     // Progress Studi Akademik
     Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik');
@@ -80,8 +92,12 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
 // untuk untuk dosenWali
 Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
     Route::get('/dosenwali/dashboard', [DosenWaliController::class, 'index'])->name('dosenWali.dashboard');
-    // Route::get('/dosenwali/dashboard/akademik/{dosenWali}', [AkademikDosenWaliController::class, 'index'])->name('dosenWali.dashboard.akademik');
-    // Route::get('/dosenwali/dashboard/akademik/{dosenWali}/perwalian/{id}', [AkademikDosenWaliController::class, 'profilMahasiswa'])->name('dosenWali.dashboard.akademik.perwalian');
+
+    // profil
+    Route::get('/dosenWali/profile', [DosenWaliController::class, 'showProfile'])->name('dosenWali.profile');
+    Route::get('/dosenWali/profile/edit', [DosenWaliController::class, 'editProfile'])->name('dosenWali.profile.edit');
+    Route::put('/dosenWali/profile/update', [DosenWaliController::class, 'updateProfile'])->name('dosenWali.profile.update');
+
 
     // verifikasi progress studi
     // IRS
@@ -126,6 +142,12 @@ Route::group(['middleware' => ['auth', 'checkrole:4']], function () {
     Route::get('/mahasiswa/dashboard', [MahasiswaController::class, 'dashboard'])->name('mahasiswa.dashboard');
     Route::get('/mahasiswa/lengkapidata', [MahasiswaController::class, 'firstEdit'])->name('mahasiswa.firstEdit');
     Route::put('/mahasiswa/lengkapidata/{nim}', [MahasiswaController::class, 'firstUpdate'])->name('mahasiswa.firstUpdate');
+
+    // Profile
+    Route::get('/mahasiswa/profile', [MahasiswaController::class, 'showProfile'])->name('mahasiswa.profile');
+    Route::get('/mahasiswa/profile/edit', [MahasiswaController::class, 'editProfile'])->name('mahasiswa.profile.edit');
+    Route::put('/mahasiswa/profile/update', [MahasiswaController::class, 'updateProfile'])->name('mahasiswa.profile.update');
+
 
     Route::get('/mahasiswa/dashboard/akademik', [AkademikController::class, 'indexMahasiswa'])->name('mahasiswa.dashboard.akademik');
     // IRS

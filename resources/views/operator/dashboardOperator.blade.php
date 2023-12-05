@@ -101,7 +101,7 @@
         <div class="sidenav" id="mySidenav">
             <h2 style="color: #fff; text-align: center; padding: 15px;">Operator</h2>
             <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-id-card"></i>
+            <a href="{{ route('generate.user.mahasiswa') }}"><i class="fa fa-id-card"></i>
                 Generate Akun Mahasiswa</a>
             <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-search"></i>
                 Pencarian Mahasiswa</a>

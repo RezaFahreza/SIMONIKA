@@ -23,6 +23,21 @@ class DosenWaliController extends Controller
             return redirect()->route('login')->with('message', 'Anda harus login terlebih dahulu.');
         }
     }
+
+    public function showProfile(){
+
+        return view('dosenWali.profile.profileDosenWali');
+    }
+
+    public function editProfile()
+    {
+
+        return view('dosenWali.profile.editProfile');
+    }
+
+    public function updateProfile(Request $request)
+    {
+    }
     /**
      * Show the form for creating a new resource.
      */

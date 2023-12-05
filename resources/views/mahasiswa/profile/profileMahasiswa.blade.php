@@ -229,7 +229,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" style="float: right">Edit</button>
+                    <a href="{{route('mahasiswa.profile.edit')}}" class="btn btn-primary" style="float: right">Edit</a>
                 </div>
             </div>
         </div>
