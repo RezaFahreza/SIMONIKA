@@ -94,8 +94,8 @@
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('dosenWali.akademik.search') }}"><i class="fa fa-user"></i>
-                        Pencarian Mahasiswa</a>
+                    <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                        Mahasiswa Perwalian</a>
                 </li>
             </ul>
             <a href="#"><i class="fa fa-user"></i>
