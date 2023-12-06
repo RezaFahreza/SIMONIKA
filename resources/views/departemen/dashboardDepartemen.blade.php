@@ -107,8 +107,8 @@
                 Akademik</a>
             <ul>
                 <li>
-                    <a href="{{ route('departemen.akademik.search') }}"><i class="fa fa-user"></i>
-                        Pencarian Mahasiswa</a>
+                    <a href="{{ route('departemen.akademik') }}"><i class="fa fa-user"></i>
+                        Mahasiswa Departemen</a>
                 </li>
                 <li>
                     <a href="{{ route('departemen.rekap.pkl') }}"><i class="fa fa-user"></i>

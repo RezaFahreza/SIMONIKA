@@ -87,6 +87,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
 
     // Rekap Status
     Route::get('/departemen/rekap/status', [AkademikDepartemenController::class, 'indexRekapStatus'])->name('departemen.rekap.status');
+    Route::get('/departemen/rekap/status-filter', [AkademikDepartemenController::class, 'filter'])->name('departemen.rekap.status.filter');
 });
 
 // untuk untuk dosenWali
