@@ -213,8 +213,6 @@
                         Skripsi</a>
                 </li>
             </ul>
-
-
         </div>
     </aside>
 
