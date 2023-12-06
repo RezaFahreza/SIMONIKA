@@ -272,7 +272,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    // url: '{{ route('dosenWali.akademik.pencarian.searchMahasiswa') }}',
+                    url: '{{ route('dosenWali.akademik.search') }}',
                     data: {
                         keyword: keyword
                     },

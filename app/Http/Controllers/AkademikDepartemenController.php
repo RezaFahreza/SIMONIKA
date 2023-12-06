@@ -6,6 +6,7 @@ use App\Models\Departemen;
 use App\Models\Mahasiswa;
 use App\Models\PKL;
 use App\Models\Skripsi;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -72,7 +73,7 @@ class AkademikDepartemenController extends Controller
 
         // dd($skripsi);
 
-        return view('dosenWali.akademik.rekap.detailSemester', [
+        return view('departemen.akademik.pencarian.detailSemester', [
             'mahasiswa' => $mahasiswa, 'irsMahasiswa' => $irsMahasiswa,
             'khsMahasiswa' => $khsMahasiswa, 'pkl' => $pkl, 'skripsi' => $skripsi
         ]);
@@ -102,6 +103,26 @@ class AkademikDepartemenController extends Controller
         // dd($MahasiswaPKL);
         return view('departemen.akademik.list.listSudahLulusPkl', compact('MahasiswaPKL'));
 
+    }
+    
+    public function cetakRekapPKL(){
+        $PKL = PKL::with('mahasiswa')->get();
+
+        $RekapPklPerAngkatan = $PKL->groupBy('mahasiswa.angkatan')->map(function ($items) {
+            return [
+                'jumlah_ambil' => $items->where('status', 'lulus')->count(),
+                'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
+            ];
+        });
+        // $pdf = PDF::loadView('#', compact('RekapPklPerAngkatan'));
+        // return $pdf->download('rekap-pkl-departemen');
+    }
+
+    public function cetakRekapPKLPerAngkatanStatus($angkatan, $status){
+        $MahasiswaPKL = Mahasiswa::where('angkatan', $angkatan)->leftJoin('pkl', function ($join) use ($status) {
+            $join->on('mahasiswa.nim', '=', 'pkl.mahasiswa_id')->where('pkl.status', '=', $status);
+        })
+        ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'pkl.nilai_pkl as nilai')->get();
     }
 
 
@@ -134,7 +155,21 @@ class AkademikDepartemenController extends Controller
 
     // Status
     public function indexRekapStatus(){
+        $Mahasiswa = Mahasiswa::all();
 
-        return view('departemen.akademik.rekap.rekapBerdasarkanStatus');
+        return view('departemen.akademik.rekap.rekapBerdasarkanStatus', compact('Mahasiswa'));
+    }
+
+    public function filter(Request $request)
+    {
+        $angkatan = $request->input('angkatan');
+        $status = $request->input('status');
+
+        // Query the database to get the filtered data based on the provided parameters
+        $filteredData = Mahasiswa::where('angkatan', $angkatan)
+            ->where('status', $status)
+            ->get();
+
+        return response()->json($filteredData);
     }
 }

@@ -295,8 +295,7 @@
 
                 $.ajax({
                     type: 'GET',
-                    url: '{{ route('
-                    departemen.akademik.search ') }}',
+                    url: '{{route("departemen.akademik.search")}}',
                     data: {
                         keyword: keyword
                     },
