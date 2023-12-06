@@ -175,43 +175,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>Nama:</td>
-                                                <td>Risqy</td>
+                                                <td>Haiqal</td>
                                             </tr>
                                             <tr>
-                                                <td>NIM:</td>
-                                                <td>123456</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alamat:</td>
-                                                <td>Jl. Contoh Alamat No. 123</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kab/Kota:</td>
-                                                <td>Contoh Kota</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Propinsi:</td>
-                                                <td>Contoh Propinsi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angkatan:</td>
-                                                <td>2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jalur Masuk:</td>
-                                                <td>SNMPTN</td>
+                                                <td>NIP:</td>
+                                                <td>14060</td>
                                             </tr>
                                             <tr>
                                                 <td>Email:</td>
-                                                <td>mahasiswa@email.com</td>
+                                                <td>haiqal@gmail.com</td>
                                             </tr>
                                             <tr>
                                                 <td>Handphone:</td>
-                                                <td>081234567890</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td>Aktif</td>
+                                                <td>081223234545</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -219,7 +195,7 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn btn-primary" type="submit" style="float: right">Edit</button>
+                    <a href="{{ route('operator.profile.edit') }}" class="btn btn-primary" style="float: right">Edit</a>
                 </div>
             </div>
         </div>

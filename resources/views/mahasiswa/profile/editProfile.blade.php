@@ -145,7 +145,7 @@
             <div id="dashboard" class="feature-content">
                 <div class="container mt-5">
                     <div class="card">
-                        <h2 class="text-center mt-3">Profile Departemen</h2>
+                        <h2 class="text-center mt-3">Edit Profile Mahasiswa</h2>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
@@ -157,26 +157,26 @@
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group">
-                                            <label for="nama">Nama:</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" value="Risqy">
+                                            <label for="nama">Nama</label>
+                                            <input type="text" name="nama" class="form-control" value="{{ $targetMahasiswa->nama }}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="nim">NIM:</label>
-                                            <input type="text" class="form-control" id="nim" name="nim" value="123456" disabled>
+                                            <label for="nim">NIM</label>
+                                            <input type="text" name="nim" class="form-control" value="{{ $targetMahasiswa->nim }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label for="alamat">Alamat:</label>
-                                            <input type="text" class="form-control" id="alamat" name="alamat" value="Jl. Contoh Alamat No. 123">
+                                            <label for="alamat">Alamat</label>
+                                            <input type="text" name="alamat" class="form-control" value="{{ $targetMahasiswa->alamat ?? '' }}" placeholder="Alamat">
                                         </div>
                                         <div class="form-group">
-                                            <label for="kab_kota">Kab/Kota:</label>
-                                            <input type="text" class="form-control" id="kab_kota" name="kab_kota" value="Contoh Kota">
+                                            <label for="kab_kota">Kabupaten/Kota</label>
+                                            <input type="text" name="kab_kota" class="form-control" value="{{ $targetMahasiswa->kab_kota ?? '' }}" placeholder="Kabupaten/Kota">
                                         </div>
                                         <div class="form-group">
                                             <label for="propinsi">Propinsi:</label>
-                                            <select class="form-control" id="propinsi" name="propinsi">
+                                            <select class="form-control" id="propinsi" name="propinsi" class="form-control" value="{{ $targetMahasiswa->propinsi ?? '' }}" placeholder="Provinsi">
                                                 <option value="">Pilih Propinsi</option>
-                                                <option value="Aceh">Aceh</option>
+                                                <option value=" Aceh">Aceh</option>
                                                 <option value="Sumatera Utara">Sumatera Utara</option>
                                                 <option value="Sumatera Barat">Sumatera Barat</option>
                                                 <option value="Riau">Riau</option>
@@ -211,26 +211,25 @@
                                                 <option value="Papua">Papua</option>
                                             </select>
                                         </div>
-
                                         <div class="form-group">
-                                            <label for="angkatan">Angkatan:</label>
-                                            <input type="text" class="form-control" id="angkatan" name="angkatan" value="2020" disabled>
+                                            <label for="angkatan">Angkatan</label>
+                                            <input type="text" name="angkatan" class="form-control" value="{{ $targetMahasiswa->angkatan }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label for="jalur_masuk">Jalur Masuk:</label>
-                                            <input type="text" class="form-control" id="jalur_masuk" name="jalur_masuk" value="SNMPTN" disabled>
+                                            <label for="propinsi">Jalur Masuk</label>
+                                            <input type="text" name="jalur_masuk" class="form-control" value="{{ $targetMahasiswa->jalur_masuk }}" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Email:</label>
-                                            <input type="email" class="form-control" id="email" name="email" value="mahasiswa@email.com" disabled>
+                                            <label for="dosenWali">Email</label>
+                                            <input type="text" name="email" class="form-control" value="{{ $targetMahasiswa->email ?? '' }}" placeholder="xxxxxx@students.undip.ac.id" disabled>
                                         </div>
                                         <div class="form-group">
-                                            <label for="handphone">Handphone:</label>
-                                            <input type="text" class="form-control" id="handphone" name="handphone" value="081234567890" disabled>
+                                            <label for="propinsi">Nomor Handphone</label>
+                                            <input type="text" name="nomor_handphone" class="form-control" value="{{ $targetMahasiswa->handphone ?? '' }}" placeholder="08xxxxxxxxxx">
                                         </div>
                                         <div class="form-group">
                                             <label for="status">Status:</label>
-                                            <select class="form-control" id="status" name="status">
+                                            <select class="form-control" id="status" name="status" disabled>
                                                 <option value="Aktif" selected>Aktif</option>
                                                 <option value="Tidak Aktif">Tidak Aktif</option>
                                             </select>

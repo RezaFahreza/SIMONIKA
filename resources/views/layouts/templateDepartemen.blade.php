@@ -1,9 +1,5 @@
-@extends('layouts.main')
-
-@section('contents')
-
 <head>
-    <title>Akademik Mahasiswa</title>
+    <title>Dashboard Dosen Wali</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -75,41 +71,16 @@
         .navbar-brand {
             font-weight: 600;
         }
-
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-                margin-bottom: 1rem;
-                color: #212529;
-            }
-
-            table th,
-            table td {
-                padding: 0.75rem;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
 <body>
-
+@yield('nav')
     @if (session('success'))
     <div class="alert alert-success mt-3">
         {{ session('success') }}
     </div>
     @endif
-
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="navbar-toggle-btn" id="toggleSidenav">
-            <i class="fa fa-bars"></i>
-        </div>
-        <span class="navbar-brand">Profile Departemen</span>
-        <form action="/logout" method="post" class="navbar-brand">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </nav>
 
     <aside>
         <div class="sidenav" id="mySidenav">
@@ -143,65 +114,7 @@
     <main>
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
-                <div class="container mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Mahasiswa" class="img-fluid">
-
-                                </div>
-                                <div class="col-md-8">
-                                    <table class="table">
-                                        <tbody>
-                                            <tr>
-                                                <td>Nama:</td>
-                                                <td>Risqy</td>
-                                            </tr>
-                                            <tr>
-                                                <td>NIM:</td>
-                                                <td>123456</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alamat:</td>
-                                                <td>Jl. Contoh Alamat No. 123</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Kab/Kota:</td>
-                                                <td>Contoh Kota</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Propinsi:</td>
-                                                <td>Contoh Propinsi</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Angkatan:</td>
-                                                <td>2020</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jalur Masuk:</td>
-                                                <td>SNMPTN</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Email:</td>
-                                                <td>mahasiswa@email.com</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Handphone:</td>
-                                                <td>081234567890</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Status:</td>
-                                                <td>Aktif</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <a href="{{ route('departemen.profile.edit') }}" class="btn btn-primary" style="float: right">Edit</a>
-                </div>
+                @yield('contents')
             </div>
         </div>
     </main>
@@ -230,4 +143,3 @@
     </script>
 
 </body>
-@endsection

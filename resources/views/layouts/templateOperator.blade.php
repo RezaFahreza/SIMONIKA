@@ -1,9 +1,5 @@
-@extends('layouts.main')
-
-@section('contents')
-
 <head>
-    <title>Akademik Mahasiswa</title>
+    <title>Dashboard Dosen Wali</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -75,41 +71,18 @@
         .navbar-brand {
             font-weight: 600;
         }
-
-        @media (max-width: 768px) {
-            table {
-                width: 100%;
-                margin-bottom: 1rem;
-                color: #212529;
-            }
-
-            table th,
-            table td {
-                padding: 0.75rem;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 
 <body>
+
+    @yield('nav')
 
     @if (session('success'))
     <div class="alert alert-success mt-3">
         {{ session('success') }}
     </div>
     @endif
-
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="navbar-toggle-btn" id="toggleSidenav">
-            <i class="fa fa-bars"></i>
-        </div>
-        <span class="navbar-brand">Edit Profile Operator</span>
-        <form action="/logout" method="post" class="navbar-brand">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </nav>
 
     <aside>
         <div class="sidenav" id="mySidenav">
@@ -161,45 +134,7 @@
     <main>
         <div class="content" id="content">
             <div id="dashboard" class="feature-content">
-                <div class="container mt-5">
-                    <div class="card">
-                        <h2 class="text-center mt-3">Edit Profile Operator</h2>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Mahasiswa" class="img-fluid">
-                                </div>
-                                <!-- Inside the div with class="col-md-8" -->
-                                <div class="col-md-8">
-                                    <form action="#" method="POST">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="nama">Nama:</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" value="Risqy">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="nim">NIP:</label>
-                                            <input type="text" class="form-control" id="nim" name="nim" value="123456" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email:</label>
-                                            <input type="email" class="form-control" id="email" name="email" value="mahasiswa@email.com" disabled>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="handphone">Handphone:</label>
-                                            <input type="text" class="form-control" id="handphone" name="handphone" value="081234567890">
-                                        </div>
-                                        <div class="row mt-3">
-                                            <div class="col-md-12 text-right">
-                                                <button type="submit" class="btn btn-primary">Simpan</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @yield('contents')
             </div>
         </div>
     </main>
@@ -228,4 +163,3 @@
     </script>
 
 </body>
-@endsection
