@@ -5,13 +5,54 @@
     <div class="navbar-toggle-btn" id="toggleSidenav">
         <i class="fa fa-bars"></i>
     </div>
-    <span class="navbar-brand">Dashboard Dosen Wali</span>
-    <form action="/logout" method="post" class="navbar-brand">
-        @csrf
-        <button type="submit" class="btn btn-primary">Logout</button>
-    </form>
-</nav>
-@endsection
+
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-toggle-btn" id="toggleSidenav">
+            <i class="fa fa-bars"></i>
+        </div>
+        <span class="navbar-brand">Dashboard Dosen Wali</span>
+        <form action="/logout" method="post" class="navbar-brand">
+            @csrf
+            <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+    </nav>
+
+    <aside>
+        <div class="sidenav" id="mySidenav">
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Dosen Wali</h2>
+            <a href="{{ route('dosenWali.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('dosenWali.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
+                Akademik</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.akademik.index') }}"><i class="fa fa-user"></i>
+                        Pencarian Mahasiswa</a>
+                </li>
+            </ul>
+            <a href="#"><i class="fa fa-user"></i>
+                Verifikasi Progress Studi</a>
+            <ul>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.irs') }}"><i class="fa fa-user"></i>
+                        IRS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.khs') }}"><i class="fa fa-user"></i>
+                        KHS</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.pkl') }}"><i class="fa fa-user"></i>
+                        PKL</a>
+                </li>
+                <li>
+                    <a href="{{ route('dosenWali.verifikasi.skripsi') }}"><i class="fa fa-user"></i>
+                        Skripsi</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
 
 @section('contents')
 <div class="container">

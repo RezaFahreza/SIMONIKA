@@ -5,13 +5,45 @@
     <div class="navbar-toggle-btn" id="toggleSidenav">
         <i class="fa fa-bars"></i>
     </div>
-    <span class="navbar-brand">Dashboard Departemen</span>
-    <form action="/logout" method="post" class="navbar-brand">
-        @csrf
-        <button type="submit" class="btn btn-primary">Logout</button>
-    </form>
-</nav>
-@endsection
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="navbar-toggle-btn" id="toggleSidenav">
+            <i class="fa fa-bars"></i>
+        </div>
+        <span class="navbar-brand">Dashboard Departemen</span>
+        <form action="/logout" method="post" class="navbar-brand">
+            @csrf
+            <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+    </nav>
+
+    <aside>
+        <div class="sidenav" id="mySidenav">
+            <h2 style="color: #fff; text-align: center; padding: 15px;">Departemen</h2>
+            <a href="{{ route('departemen.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
+            <a href="{{ route('departemen.profile') }}"><i class="fa fa-user-circle-o"></i>
+                Profile</a>
+            <a href="#"><i class="fa fa-user"></i>
+                Akademik</a>
+            <ul>
+                <li>
+                    <a href="{{ route('departemen.akademik') }}"><i class="fa fa-user"></i>
+                        Mahasiswa Departemen</a>
+                </li>
+                <li>
+                    <a href="{{ route('departemen.rekap.pkl') }}"><i class="fa fa-user"></i>
+                        Rekap PKL Mahasiswa</a>
+                </li>
+                <li>
+                    <a href="{{ route('departemen.rekap.skripsi') }}"><i class="fa fa-user"></i>
+                        Rekap Skripsi Mahasiswa</a>
+                </li>
+                <li>
+                    <a href="{{ route('departemen.rekap.status') }}"><i class="fa fa-user"></i>
+                        Rekap Status Mahasiswa</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
 
 @section('contents')
 <div class="container">

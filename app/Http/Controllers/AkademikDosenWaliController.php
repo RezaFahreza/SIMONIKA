@@ -37,7 +37,6 @@ class AkademikDosenWaliController extends Controller
                 ->get();
         }
 
-        // dd($results);
         return response()->json(['results' => $results]);
     }
 
@@ -73,7 +72,7 @@ class AkademikDosenWaliController extends Controller
 
         // dd($skripsi);
 
-        return view('dosenWali.akademik.rekap.detailSemester',['mahasiswa'=>$mahasiswa, 'irsMahasiswa'=>$irsMahasiswa,
+        return view('dosenWali.akademik.pencarian.detailSemester',['mahasiswa'=>$mahasiswa, 'irsMahasiswa'=>$irsMahasiswa,
     'khsMahasiswa'=>$khsMahasiswa, 'pkl'=>$pkl, 'skripsi'=>$skripsi]);
     }
 }
