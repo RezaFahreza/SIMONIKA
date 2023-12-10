@@ -26,13 +26,16 @@ class DosenWaliController extends Controller
 
     public function showProfile(){
 
-        return view('dosenWali.profile.profileDosenWali');
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $dosenWali = DosenWali::where('user_id', $user->id)->first();
+        return view('dosenWali.profile.profileDosenWali', compact('dosenWali'));
     }
 
     public function editProfile()
     {
-
-        return view('dosenWali.profile.editProfile');
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $dosenWali = DosenWali::where('user_id', $user->id)->first();
+        return view('dosenWali.profile.editProfile', compact('dosenWali'));
     }
 
     public function updateProfile(Request $request)

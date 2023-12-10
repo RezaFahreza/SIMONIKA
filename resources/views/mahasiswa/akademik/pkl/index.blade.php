@@ -1,127 +1,10 @@
-@extends('layouts.main')
+@extends('layouts.templateMahasiswa', ['title' => 'PKL'])
 
 @section('contents')
-
-<head>
-    <title>PKL Mahasiswa</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style>
-        /* Atur gaya kustom di sini */
-        .sidenav {
-            height: 100%;
-            width: 250px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: -250px;
-            /* Semula sidenav tersembunyi */
-            background-color: #333;
-            padding-top: 20px;
-            transition: left 0.3s;
-        }
-
-        .sidenav a {
-            padding: 10px 15px;
-            text-align: left;
-            text-decoration: none;
-            font-size: 16px;
-            color: white;
-            display: block;
-        }
-
-        .sidenav a:hover {
-            background-color: #555;
-        }
-
-        .sidenav a:active {
-            border: 1px solid;
-            background-color: #000;
-        }
-
-        .content {
-            margin-left: 0;
-            padding: 20px;
-            transition: margin-left 0.3s;
-        }
-
-        .sidenav.active {
-            left: 0;
-            /* Menampilkan sidenav saat active */
-        }
-
-        .content.active {
-            margin-left: 250px;
-            /* Geser konten saat active */
-        }
-
-        .navbar-toggler {
-            color: #fff;
-        }
-
-        .navbar-toggle-btn {
-            padding: 5px 15px;
-            font-size: 24px;
-            color: white;
-            cursor: pointer;
-            z-index: 2;
-        }
-
-        .navbar.active {
-            margin-left: 250px;
-            transition: margin-left 0.3s;
-        }
-
-        .navbar-brand {
-            font-weight: 600;
-        }
-    </style>
-</head>
-
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="navbar-toggle-btn" id="toggleSidenav">
-            <i class="fa fa-bars"></i>
-        </div>
-        <span class="navbar-brand">PKL Mahasiswa</span>
-        <form action="/logout" method="post" class="navbar-brand">
-            @csrf
-            <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
-    </nav>
-
-    <aside>
-        <div class="sidenav" id="mySidenav">
-            <h2 style="color: #fff; text-align: center; padding: 15px;">Mahasiswa</h2>
-            <a href="{{ route('mahasiswa.dashboard') }}"><i class="fa fa-dashboard"></i> Dashboard</a>
-            <a href="{{ route('mahasiswa.profile') }}"><i class="fa fa-user-circle-o"></i>
-                Profile</a>
-            <a href="#"><i class="fa fa-user"></i>
-                Akademik</a>
-            <ul>
-                <li>
-                    <a href="{{ route('mahasiswa.dashboard.akademik.irs') }}"><i class="fa fa-user"></i>
-                        IRS</a>
-                </li>
-                <li>
-                    <a href="{{ route('mahasiswa.dashboard.akademik.khs') }}"><i class="fa fa-user"></i>
-                        KHS</a>
-                </li>
-                <li>
-                    <a href="{{ route('mahasiswa.dashboard.akademik.pkl') }}"><i class="fa fa-user"></i>
-                        PKL</a>
-                </li>
-                <li>
-                    <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}"><i class="fa fa-user"></i>
-                        Skripsi</a>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <main>
-        <div class="content" id="content">
-            <div id="pkl" class="feature-content">
+<main>
+    <div class="container">
+        <div class="mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="container px-4 py-5 mt-5">
                 <div class="card text">
                     <div class="card-header">
                         <ul class="nav nav-tabs card-header-tabs">
@@ -160,10 +43,10 @@
                                     @endif
                                     @if ($pkl->status == 'belum ambil')
                                     <div class="d-flex align-items-center justify-content-between">
-                                        <h1 class="mb-0">Unggah Berkas PKL</h1>
+                                        <h1 class="mb-3">Unggah Berkas PKL</h1>
                                     </div>
                                     <hr />
-                                    <form action="{{ route('mahasiswa.dashboard.akademik.pkl.storeBerkas', ['id' => $pkl->id]) }}" method="post" enctype="multipart/form-data">
+                                    <form action="{{ route('mahasiswa.dashboard.akademik.pkl.storeBerkas', ['id' => $pkl->id]) }}" method="post" enctype="multipart/form-data" class="mt-3">
                                         @csrf
                                         @method('PUT')
                                         <div class="form-group mb-3">
@@ -179,7 +62,9 @@
                                                 Acara</label>
                                             <input class="form-control" type="file" name="scan_berita_acara_seminar_pkl">
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <div class="col-md-12 text-right">
+                                            <button type="submit" class="text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
+                                        </div>
                                     </form>
                                     @elseif ($pkl->status == 'lulus')
                                     @if ($pkl->status_validasi == 'PENDING')
@@ -242,31 +127,6 @@
                 </div>
             </div>
         </div>
-    </main>
-
-    <script>
-        // Tampilkan konten Dashboard secara otomatis saat halaman dimuat
-        window.onload = function() {
-            showFeature('pkl');
-        };
-
-        document.getElementById('toggleSidenav').addEventListener('click', function() {
-            document.getElementById('mySidenav').classList.toggle('active');
-            document.getElementsByClassName('content')[0].classList.toggle('active');
-            document.getElementsByClassName('navbar')[0].classList.toggle('active');
-        });
-
-        function showFeature(feature) {
-            const featureContents = document.querySelectorAll('.feature-content');
-            featureContents.forEach(content => {
-                content.style.display = 'none';
-            });
-
-            const contentToShow = document.getElementById(feature);
-            contentToShow.style.display = 'block';
-        }
-    </script>
-
-</body>
-
+    </div>
+</main>
 @endsection

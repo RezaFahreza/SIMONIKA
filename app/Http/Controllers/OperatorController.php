@@ -20,14 +20,16 @@ class OperatorController extends Controller
 
     public function showProfile()
     {
-
-        return view('operator.profile.profileOperator');
+        $user = Auth::user();
+        $operator = Operator::where('user_id', $user->id)->first();
+        return view('operator.profile.profileOperator', compact('operator'));
     }
 
     public function editProfile()
     {
-
-        return view('operator.profile.editProfile');
+        $user = Auth::user();
+        $operator = Operator::where('user_id', $user->id)->first();
+        return view('operator.profile.editProfile', compact('operator'));
     }
 
     public function updateProfile(Request $request)

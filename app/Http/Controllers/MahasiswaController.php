@@ -153,17 +153,21 @@ class MahasiswaController extends Controller
 
 //  Profil Mahasiswa
     public function showProfile(){
-
-        return view('mahasiswa.profile.profileMahasiswa');
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+        return view('mahasiswa.profile.profileMahasiswa', compact('mahasiswa'));
     }
 
     public function editProfile(){
-        
-        return view('mahasiswa.profile.editProfile');
+
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+        return view('mahasiswa.profile.editProfile', compact('mahasiswa'));
     }
 
     public function updateProfile(Request $request){
-
     }
     public function store(Request $request, )
     {

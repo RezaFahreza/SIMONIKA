@@ -26,14 +26,16 @@ class DepartemenController extends Controller
 
     public function showProfile()
     {
-
-        return view('departemen.profile.profileDepartemen');
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $departemen = Departemen::where('user_id', $user->id)->first();
+        return view('departemen.profile.profileDepartemen', compact('departemen'));
     }
 
     public function editProfile()
     {
-
-        return view('departemen.profile.editProfile');
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $departemen = Departemen::where('user_id', $user->id)->first();
+        return view('departemen.profile.editProfile',compact('departemen'));
     }
 
     public function updateProfile(Request $request)
