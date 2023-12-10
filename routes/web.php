@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::put('/departemen/profile/update', [DepartemenController::class, 'updateProfile'])->name('departemen.profile.update');
 
     // Progress Studi Akademik
-    Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik');
+    Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik.index');
     Route::get('/departemen/akademik-search', [AkademikDepartemenController::class, 'searchMahasiswa'])->name('departemen.akademik.search');
     Route::get('/departemen/akademik/profile/{nim}', [AkademikDepartemenController::class, 'indexAkademik'])->name('departemen.akademik.profile');
 
@@ -87,7 +87,6 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
 
     // Rekap Status
     Route::get('/departemen/rekap/status', [AkademikDepartemenController::class, 'indexRekapStatus'])->name('departemen.rekap.status');
-    Route::get('/departemen/rekap/status-filter', [AkademikDepartemenController::class, 'filter'])->name('departemen.rekap.status.filter');
 });
 
 // untuk untuk dosenWali
