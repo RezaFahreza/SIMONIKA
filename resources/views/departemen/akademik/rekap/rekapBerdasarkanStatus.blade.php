@@ -5,63 +5,104 @@
     <div class="container">
         <div class="mx-auto py-6 sm:px-6 lg:px-8">
             <div class="container px-4 py-5">
-                <div class="card">
-                    <h2 class="text-center mt-3">Rekap Berdasarkan Status Mahasiswa</h2>
-                    <div class="table-container mt-4">
+                <h2 class="text-center mt-3 font-bold">Rekap Berdasarkan Status Mahasiswa</h2>
+                <div class="card mt-4">
+                    <div class="table-container">
                         <div class="table-responsive">
-                            <div class="box" style="background-color: black; width: auto; height: 2px"></div>
-                            <table class="table">
+                            <table class="table text-center">
                                 <tbody>
                                     <tr>
-                                        <h2 class="text-center my-3">Angkatan</h2>
-                                        <div class="box" style="background-color: black; width: auto; height: 2px"></div>
+                                        <td rowspan="2" class="align-bottom">Status</td>
+                                        <td colspan="8">Angkatan</td>
                                     </tr>
                                     <tr>
-                                        <td colspan="2" class="text-center">2016</td>
-                                        <td colspan="2" class="text-center">2017</td>
-                                        <td colspan="2" class="text-center">2018</td>
-                                        <td colspan="2" class="text-center">2019</td>
-                                        <td colspan="2" class="text-center">2020</td>
-                                        <td colspan="2" class="text-center">2021</td>
-                                        <td colspan="2" class="text-center">2022</td>
-                                        <td colspan="2" class="text-center">2023</td>
+                                        <td>2016</td>
+                                        <td>2017</td>
+                                        <td>2018</td>
+                                        <td>2019</td>
+                                        <td>2020</td>
+                                        <td>2021</td>
+                                        <td>2022</td>
+                                        <td>2023</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
-                                        <td class="text-center">Sudah</td>
-                                        <td class="text-center">Belum</td>
+                                        <td>Aktif</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">87</a></td>
+                                        <td>Cuti</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
                                     </tr>
+                                    <tr>
+                                        <td>Mangkir</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DO</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Undur Diri</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lulus</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Meninggal Dunia</td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                        <td><a href="/departemen/akademik/rekap/pdfstatus" class="btn btn-link" target="_blank">45</a></td>
+                                    </tr>
+
                             </table>
                         </div>
                     </div>

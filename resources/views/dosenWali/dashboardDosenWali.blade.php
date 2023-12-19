@@ -9,7 +9,7 @@
                 <div class="card py-2">
                     <div class="row gy-2 ml-4 align-items-center">
                         <div class="col-1.5">
-                            <img class="h-20 w-20 rounded-circle bg-gray-50 ml-4" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="foto profile">
+                            <img class="h-20 w-20 rounded-circle bg-gray-50 ml-4" src="{{ URL::asset('images/image4.jpeg') }}" alt="foto profile">
                         </div>
                         <div class="card ml-4">
                             <div class="col md:text-justify">

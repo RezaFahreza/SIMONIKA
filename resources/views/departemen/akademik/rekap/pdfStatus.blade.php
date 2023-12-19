@@ -12,9 +12,6 @@
         <div class="text-center mt-5">
             <h4 class="text-lg font-bold">PDF Rekap Status</h4>
         </div>
-        <div class="mt-4">
-            <a href="/pegawai/cetak_pdf" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" target="_blank">Cetak PDF</a>
-        </div>
         <table class='table-auto w-full border-collapse border border-gray-300 mt-4'>
             <thead class="bg-gray-200">
                 <tr>
