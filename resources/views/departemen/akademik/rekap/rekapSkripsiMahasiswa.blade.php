@@ -45,22 +45,22 @@
                                         <td class="text-center">Belum</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
-                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2016', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2016']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2016', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2016']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2017', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2017']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2017', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2017']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2018', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2018']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2018', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2018']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2019', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2019']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2019', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2019']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2020', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2020']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2020', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2020']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2021', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2021']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2021', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2021']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2022', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2022']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2022', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2022']['jumlah_belum_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2023', 'status' => 'lulus'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2023']['jumlah_ambil'] ?? 0}}</a></td>
+                                        <td class="text-center"><a href="{{route ("departemen.rekap.skripsi.detail", ['angkatan' => '2023', 'status' => 'belum ambil'])}}" class="btn btn-link" >{{$RekapSkripsiPerAngkatan['2023']['jumlah_belum_ambil'] ?? 0}}</a></td>
                                     </tr>
                             </table>
                         </div>
