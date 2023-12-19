@@ -168,6 +168,28 @@ class MahasiswaController extends Controller
     }
 
     public function updateProfile(Request $request){
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+        $request->validate([
+            'nama' => 'required',
+            'alamat' => 'required',
+            'kab_kota' => 'required',
+            'propinsi' => 'required',
+            'email' => 'required|email',
+            'nomor_handphone' => 'required|numeric',
+            // 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $mahasiswa->nama = $request->nama;
+        $mahasiswa->alamat = $request->alamat;
+        $mahasiswa->kab_kota = $request->kab_kota;
+        $mahasiswa->propinsi = $request->propinsi;
+        $mahasiswa->email = $request->email;
+        $mahasiswa->handphone = $request->nomor_handphone;
+        $mahasiswa->save();
+
+        return redirect()->route('mahasiswa.profile')->with('success', 'Perubahan berhasil disimpan');
     }
     public function store(Request $request, )
     {

@@ -13,14 +13,14 @@ class AkademikDosenWaliController extends Controller
     public function index()
     {
         
-        // $user = Auth::user();
-        // $dosenWali = DosenWali::findOrFail($user->username);
+        $user = Auth::user();
+        $dosenWali = DosenWali::findOrFail($user->username);
         // dd($dosenWali);
-        // $mahasiswaPerwalian = DB::table('mahasiswa')
-        //     ->where('dosen_wali', $dosenWali->nip)
-        //     ->get();
+        $mahasiswaPerwalian = DB::table('mahasiswa')
+            ->where('dosen_wali', $dosenWali->nip)
+            ->get();
         
-        return view('dosenWali.akademik.pencarian.searchMahasiswa');
+        return view('dosenWali.akademik.pencarian.searchMahasiswa',compact('dosenWali', 'mahasiswaPerwalian'));
     }
 
     public function searchMahasiswa(Request $request){

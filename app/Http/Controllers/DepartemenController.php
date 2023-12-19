@@ -40,6 +40,21 @@ class DepartemenController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $departemen = Departemen::where('user_id', $user->id)->first();
+
+        $request->validate([
+            'nama_departemen' => 'required',
+            'kode_departemen' => 'required',
+            'email' => 'required|email',
+        ]);
+
+        $departemen->nama_departemen = $request->nama_departemen;
+        $departemen->kode_departemen = $request->kode_departemen;
+        $departemen->email = $request->email;
+        $departemen->save();
+
+        return redirect()->route('departemen.profile')->with('success', 'Perubahan berhasil disimpan');
     }
 
     

@@ -13,20 +13,20 @@
                             </div>
                             <!-- Inside the div with class="col-md-8" -->
                             <div class="col-md-8">
-                                <form action="#" method="post">
+                                <form action="{{ route('departemen.profile.update')}}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
-                                        <label for="nama">Nama:</label>
-                                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $departemen->nama_departemen }}">
+                                        <label for="nama_departemen">Nama Departemen:</label>
+                                        <input type="text" class="form-control" id="nama_departemen" name="nama_departemen" value="{{ $departemen->nama_departemen }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="nip">NIP:</label>
-                                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $departemen->kode_departemen }}" disabled>
+                                        <label for="nip">Kode Departemen:</label>
+                                        <input type="text" class="form-control" id="kode_departemen" name="kode_departemen" value="{{ $departemen->kode_departemen }}" readonly>
                                     </div>
                                     <div class="form-group">
-                                        <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="{{ $departemen->email }}" disabled>
+                                        <label for="email">Email Departemen:</label>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{ $departemen->email }}" readonly>
                                     </div>
                                     <div class="form-group row mt-16">
                                         <div class="col-md-12 text-right">

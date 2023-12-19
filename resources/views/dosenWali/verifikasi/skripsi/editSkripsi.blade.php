@@ -55,7 +55,7 @@
                                             target="_blank">Lihat Scan Berita Acara
                                             Sebelumnya</a>
                                     @endif
-                                    <input class="form-control" type="file" name="scan_berita_acara_sidang_skripsi">
+                                    {{-- <input class="form-control" type="file" name="scan_berita_acara_sidang_skripsi"> --}}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ route('dosenWali.verifikasi.skripsi.show', ['id' => $skripsi->id]) }}"

@@ -18,6 +18,7 @@ class DosenWali extends Model
         'nama',
         'email',
         'handphone',
+        'foto',
         'user_id',
     ];
 

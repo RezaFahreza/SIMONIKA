@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('kode_departemen')->primary();
             $table->string('nama_departemen');
             $table->string('email')->unique()->nullable();
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
 

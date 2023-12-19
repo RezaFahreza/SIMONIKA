@@ -13,19 +13,20 @@
                             </div>
                             <!-- Inside the div with class="col-md-8" -->
                             <div class="col-md-8">
-                                <form action="#" method="POST">
+                                <form action="{{route('dosenWali.profile.update')}}" method="POST">
                                     @csrf
+                                    @method('PUT')
                                     <div class="form-group">
                                         <label for="nama">Nama:</label>
                                         <input type="text" class="form-control" id="nama" name="nama" value="{{ $dosenWali->nama }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="nip">NIP:</label>
-                                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $dosenWali->nip }}" disabled>
+                                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $dosenWali->nip }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="{{ $dosenWali->email }}" disabled>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{ $dosenWali->email }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="handphone">Handphone:</label>

@@ -15,15 +15,15 @@
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td>Nama:</td>
+                                            <td>Nama Departemen:</td>
                                             <td>{{$departemen->nama_departemen}}</td>
                                         </tr>
                                         <tr>
-                                            <td>NIP:</td>
+                                            <td>Kode Departemen:</td>
                                             <td>{{$departemen->kode_departemen}}</td>
                                         </tr>
                                         <tr>
-                                            <td>Email:</td>
+                                            <td>Email Departemen:</td>
                                             <td>{{$departemen->email}}</td>
                                         </tr>
                                     </tbody>

@@ -13,7 +13,7 @@
                             </div>
                             <!-- Inside the div with class="col-md-8" -->
                             <div class="col-md-8">
-                                <form action="#" method="POST">
+                                <form action="{{ route('operator.profile.update')}}" method="POST">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-group">
@@ -22,11 +22,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="nip">NIP:</label>
-                                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $operator->nip }}" disabled>
+                                        <input type="text" class="form-control" id="nip" name="nip" value="{{ $operator->nip }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="email">Email:</label>
-                                        <input type="email" class="form-control" id="email" name="email" value="{{ $operator->email }}" disabled>
+                                        <input type="email" class="form-control" id="email" name="email" value="{{ $operator->email }}" readonly>
                                     </div>
                                     <div class="form-group">
                                         <label for="handphone">Handphone:</label>

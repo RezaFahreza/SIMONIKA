@@ -38,7 +38,7 @@
                                 <br>
                                     <a href="{{ asset('storage/' . $irs->scan_irs) }}" target="_blank">Lihat Scan IRS Sebelumnya</a>
                                 @endif
-                                <input class="form-control" type="file" name="scan_irs">
+                                {{-- <input class="form-control" type="file" name="scan_irs"> --}}
                             </div>
 
                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
