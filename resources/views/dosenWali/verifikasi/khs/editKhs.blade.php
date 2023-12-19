@@ -53,7 +53,7 @@
                                         <a href="{{ asset('storage/' . $khs->scan_khs) }}" target="_blank">Lihat Scan khs
                                             Sebelumnya</a>
                                     @endif
-                                    <input class="form-control" type="file" name="scan_khs">
+                                    {{-- <input class="form-control" type="file" name="scan_khs"> --}}
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">Simpan Perubahan</button>

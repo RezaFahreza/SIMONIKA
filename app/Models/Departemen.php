@@ -17,6 +17,7 @@ class Departemen extends Model
         'kode_departemen',
         'nama_departemen',
         'email',
+        'foto',
         'user_id',
     ];
 

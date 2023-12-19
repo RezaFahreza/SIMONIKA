@@ -45,7 +45,7 @@
                                             target="_blank">Lihat Scan Berita Acara
                                             Sebelumnya</a>
                                     @endif
-                                    <input class="form-control" type="file" name="scan_berita_acara_seminar_pkl">
+                                    {{-- <input class="form-control" type="file" name="scan_berita_acara_seminar_pkl"> --}}
                                 </div>
                                 <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="{{ route('dosenWali.verifikasi.pkl.show', ['id' => $pkl->id]) }}"

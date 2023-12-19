@@ -34,17 +34,20 @@
                                 <th class="align-middle">Progress Studi</th>
                             </tr>
                         </thead>
-                        <tbody>
-
-                            <td>abc</td>
-
-                            <td>def</td>
-
-                            <td>aa</td>
-
-                            <td><a href="/dosenwali/akademik/detailSemester">Lihat Progress</a></td>
-
-                        </tbody>
+                        <tbody id="search-results">
+                                @if ($mahasiswaPerwalian->count() > 0)
+                                    @foreach ($mahasiswaPerwalian as $mahasiswa)
+                                        <tr>
+                                            <td class="align-middle">{{ $mahasiswa->nim }}</td>
+                                            <td class="align-middle">{{ $mahasiswa->nama }}</td>
+                                            <td class="align-middle">{{ $mahasiswa->angkatan }}</td>
+                                            <td class="align-middle"><a
+                                                    href="{{ route('dosenWali.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat
+                                                    Progress</a></td>
+                                        </tr>
+                                    @endforeach
+                                @endif
+                            </tbody>
 
                     </table>
                 </div>
@@ -54,5 +57,48 @@
 </main>
 
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+            $(document).ready(function() {
+                $('#search-input').on('input', function(e) {
+
+                    let keyword = $(this).val();
+
+                    $.ajax({
+                        type: 'GET',
+                        url: '{{ route('dosenWali.akademik.search') }}',
+                        data: {
+                            keyword: keyword
+                        },
+                        success: function(response) {
+                            displayResults(response.results);
+                        },
+                        error: function(error) {
+                            console.log(error);
+                        }
+                    });
+                });
+
+                function displayResults(results) {
+                    let resultContainer = $('#search-results');
+                    resultContainer.empty();
+
+                    if (results.length > 0) {
+                        for (let i = 0; i < results.length; i++) {
+                            // let iteration = resultContainer.find('tr').eq(i).data('iteration');
+                            resultContainer.append(`
+                                <tr>
+                                    <td class="align-middle">${results[i].nim}</td>
+                                    <td class="align-middle">${results[i].nama}</td>
+                                    <td class="align-middle">${results[i].angkatan}</td>
+                                    <td class="align-middle"><a href="{{ route('dosenWali.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat Progress</a></td>
+                                </tr>
+                            `);
+                        }
+                    } else {
+                        resultContainer.append(`<tr><td class="align-middle" colspan="4">Tidak ada hasil</td></tr>`);
+                    }
+                }
+            });
+        </script>
 
 @endsection

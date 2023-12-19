@@ -18,6 +18,7 @@ class Operator extends Model
         'nama',
         'email',
         'handphone',
+        'foto',
         'user_id',
     ];
 

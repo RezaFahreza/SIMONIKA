@@ -15,13 +15,13 @@ class AkademikDepartemenController extends Controller
 {
     public function index()
     {
-        // $user = Auth::user();
-        // $departemen = Departemen::findOrFail($user->username);
+        $user = Auth::user();
+        $departemen = Departemen::findOrFail($user->username);
 
-        // $mahasiswaDepartemen = Mahasiswa::all();
+        $mahasiswaDepartemen = Mahasiswa::all();
 
-        // return view('departemen.akademik.pencarian.searchMahasiswa', compact('departemen', 'mahasiswaDepartemen'));
-        return view('departemen.akademik.pencarian.searchMahasiswa');
+        return view('departemen.akademik.pencarian.searchMahasiswa', compact('departemen', 'mahasiswaDepartemen'));
+        
     }
 
     public function searchMahasiswa(Request $request)

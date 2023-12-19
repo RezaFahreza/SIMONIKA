@@ -292,7 +292,7 @@ class VerifikasiProgressStudiController extends Controller
         $skripsi->lama_studi_semester = $request->lama_studi_semester;
         $skripsi->save();
         return redirect()->route('dosenWali.verifikasi.skripsi.show', ['id' => $skripsi->id])
-            ->with('success', 'Validasi berhasil dilakukan.');
+            ->with('success', 'Perubahan berhasil disimpan.');
     }
 
     public function validateSkripsi($id)

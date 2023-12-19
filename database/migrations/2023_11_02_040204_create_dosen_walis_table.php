@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('email')->nullable();
             $table->string('handphone')->nullable();
+            $table->string('foto')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->timestamps();
         });

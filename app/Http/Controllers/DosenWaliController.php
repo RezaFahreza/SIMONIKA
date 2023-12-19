@@ -40,6 +40,23 @@ class DosenWaliController extends Controller
 
     public function updateProfile(Request $request)
     {
+        $user = Auth::user(); // Dapatkan user yang sedang login
+        $dosenWali = DosenWali::where('user_id', $user->id)->first();
+
+        $request->validate([
+            'nama' => 'required',
+            'nip' => 'required',
+            'email' => 'required|email',
+            'handphone' => 'required',
+        ]);
+
+        $dosenWali->nama = $request->nama;
+        $dosenWali->nip = $request->nip;
+        $dosenWali->email = $request->email;
+        $dosenWali->handphone = $request->handphone;
+        $dosenWali->save();
+
+        return redirect()->route('dosenWali.profile')->with('success', 'Perubahan berhasil disimpan');
     }
     /**
      * Show the form for creating a new resource.
