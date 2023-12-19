@@ -80,7 +80,7 @@
                 <label for="propinsi">Nomor Handphone</label>
                 <input type="text" name="nomor_handphone" class="form-control" value="{{ $targetMahasiswa->handphone ?? '' }}" placeholder="08xxxxxxxxxx">
             </div>
-            {{-- <div class="form-group">
+            <div class="form-group">
                 <label for="status_keaktifan">Status Keaktifan</label>
                 <select name="status_keaktifan" class="form-control">
                     <option value="Aktif" @if ($targetMahasiswa->status == 'Aktif') selected @endif>Aktif</option>
@@ -91,7 +91,7 @@
                     <option value="Lulus" @if ($targetMahasiswa->status == 'Lulus') selected @endif>Lulus</option>
                     <option value="Meninggal Dunia" @if ($targetMahasiswa->status == 'Meninggal Dunia') selected @endif>Meninggal Dunia</option>
                 </select>
-            </div> --}}
+            </div>
             <div class="form-group">
                 <label for="dosenWali">Dosen Wali</label>
                 <input type="text" name="dosenWali" class="form-control" value="{{ $targetMahasiswa->nama_dosen }}" readonly>

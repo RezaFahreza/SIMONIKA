@@ -1,39 +1,11 @@
-@extends('layouts.main')
+@extends('layouts.templateMahasiswa', ['title' => 'Edit Skripsi'])
 
 @section('contents')
-<div class="card text">
-    <nav>
-        <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="true" href="{{ route('mahasiswa.dashboard.akademik') }}">Biodata Akademik</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.irs') }}">IRS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.khs') }}">KHS</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.pkl') }}">PKL</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="true""
-                        href=" {{ route('mahasiswa.dashboard.akademik.skripsi') }}">Skripsi</a>
-                </li>
-                <a href="{{ route('mahasiswa.dashboard') }}" class="btn btn-primary">Kembali Ke
-                    Dashboard</a>
-            </ul>
-        </div>
-    </nav>
-
-    <main>
-        <div class="card-body">
-            <div class="container">
-                <div class="card">
+<main>
+    <div class="container">
+        <div class="mx-auto py-6 sm:px-6 lg:px-8">
+            <div class="container px-4 py-5 mt-5">
+                <div class="card text">
                     <div class="card-header">
                         <div class="row">
                             <div class="col-md-6">
@@ -53,7 +25,10 @@
                             @method('PUT')
                             <div class="form-group mb-3">
                                 <label for="semester" class="form-label">Semester</label>
-                                <input type="text" name="semester" class="form-control" value="{{ $skripsi->semester }}">
+                                <select name="semester" id="semester" class="block w-full p-2 mb-6 text-sm text-gray-900 border border-dark rounded-lg bg-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    @for ($i = 1; $i <= 14; $i++) <option value="{{ $i }}">{{ $i }}</option>
+                                        @endfor
+                                </select>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="nilai_skripsi" class="form-label">Nilai Skripsi</label>
@@ -76,13 +51,13 @@
                                 @endif
                                 <input class="form-control" type="file" name="scan_berita_acara_sidang_skripsi">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Submit</button>
                             <a href="{{ route('mahasiswa.dashboard.akademik.skripsi') }}" class="btn btn-danger">Batal</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
-</div>
+    </div>
+</main>
 @endsection

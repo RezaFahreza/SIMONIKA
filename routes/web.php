@@ -72,7 +72,7 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::put('/departemen/profile/update', [DepartemenController::class, 'updateProfile'])->name('departemen.profile.update');
 
     // Progress Studi Akademik
-    Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik.index');
+    Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik');
     Route::get('/departemen/akademik-search', [AkademikDepartemenController::class, 'searchMahasiswa'])->name('departemen.akademik.search');
     Route::get('/departemen/akademik/profile/{nim}', [AkademikDepartemenController::class, 'indexAkademik'])->name('departemen.akademik.profile');
 
@@ -178,4 +178,20 @@ Route::group(['middleware' => ['auth', 'checkrole:4']], function () {
     Route::get('/mahasiswa/dashboard/akademik/skripsi/edit/{id}', [SkripsiController::class, 'edit'])->name('mahasiswa.dashboard.akademik.skripsi.edit');
     Route::put('/mahasiswa/dashboard/akademik/skripsi/edit/{id}', [SkripsiController::class, 'update'])->name('mahasiswa.dashboard.akademik.skripsi.update');
 
+});
+
+Route::get('/departemen/akademik/detailSemester', function () {
+    return view('departemen.akademik.pencarian.detailSemester');
+});
+Route::get('/departemen/akademik/detailIRS', function () {
+    return view('departemen.akademik.pencarian.detailIrsMahasiswa');
+});
+Route::get('/departemen/akademik/detailKHS', function () {
+    return view('departemen.akademik.pencarian.detailKhsMahasiswa');
+});
+Route::get('/departemen/akademik/detailPKL', function () {
+    return view('departemen.akademik.pencarian.detailPklMahasiswa');
+});
+Route::get('/departemen/akademik/detailSkripsi', function () {
+    return view('departemen.akademik.pencarian.detailSkripsiMahasiswa');
 });
