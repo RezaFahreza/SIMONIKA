@@ -6,10 +6,11 @@ use App\Models\Departemen;
 use App\Models\Mahasiswa;
 use App\Models\PKL;
 use App\Models\Skripsi;
-use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\PDF;
+
 
 class AkademikDepartemenController extends Controller
 {
@@ -102,7 +103,7 @@ class AkademikDepartemenController extends Controller
         ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'pkl.nilai_pkl as nilai')->get();
 
         // dd($MahasiswaPKL);
-        return view('departemen.akademik.list.listSudahLulusPkl', compact('MahasiswaPKL'));
+        return view('departemen.akademik.rekap.detailPkl', compact('MahasiswaPKL', 'angkatan', 'status'));
 
     }
     
@@ -115,8 +116,8 @@ class AkademikDepartemenController extends Controller
                 'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
             ];
         });
-        // $pdf = PDF::loadView('#', compact('RekapPklPerAngkatan'));
-        // return $pdf->download('rekap-pkl-departemen');
+        $pdf = PDF::loadView('departemen.akademik.rekap.pdfPkl', ['RekapPklPerAngkatan']);
+        return $pdf->download('rekap-pkl-departemen');
     }
 
     public function cetakRekapPKLPerAngkatanStatus($angkatan, $status){
@@ -124,6 +125,11 @@ class AkademikDepartemenController extends Controller
             $join->on('mahasiswa.nim', '=', 'pkl.mahasiswa_id')->where('pkl.status', '=', $status);
         })
         ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'pkl.nilai_pkl as nilai')->get();
+        // dd($MahasiswaPKL);
+        $filename = 'rekap_pkl_' . $angkatan . '_' . str_replace(' ', '_', $status) . '.pdf';
+
+        $pdf = PDF::loadView('departemen.akademik.rekap.pdfPkl', ['MahasiswaPKL' => $MahasiswaPKL, 'angkatan' => $angkatan, 'status' => $status]);
+        return $pdf->stream($filename);
     }
 
 
@@ -150,27 +156,71 @@ class AkademikDepartemenController extends Controller
             ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'skripsi.nilai_skripsi as nilai')->get();
 
         // dd($MahasiswaSkripsi);
-        return view('', compact('MahasiswaSkripsi'));
+        return view('departemen.akademik.rekap.detailSkripsi', compact('MahasiswaSkripsi', 'angkatan', 'status'));
     }
+
+    public function cetakRekapSkripsi(){
+        $Skripsi = Skripsi::with('mahasiswa')->get();
+
+        $RekapSkripsiPerAngkatan = $Skripsi->groupBy('mahasiswa.angkatan')->map(function ($items) {
+            return [
+                'jumlah_ambil' => $items->where('status', 'lulus')->count(),
+                'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
+            ];
+        });
+        $pdf = PDF::loadView('departemen.akademik.rekap.pdfSkripsi', ['RekapSkripsiPerAngkatan']);
+        return $pdf->download('rekap-pkl-departemen');
+    }
+
+    public function cetakRekapSkripsiPerAngkatanStatus($angkatan, $status){
+        $MahasiswaSkripsi = Mahasiswa::where('angkatan', $angkatan)->leftJoin('skripsi', function ($join) use ($status) {
+            $join->on('mahasiswa.nim', '=', 'skripsi.mahasiswa_id')->where('skripsi.status', '=', $status);
+        })
+            ->select('mahasiswa.nim', 'mahasiswa.nama', 'mahasiswa.angkatan', 'skripsi.nilai_skripsi as nilai')->get();
+        // dd($MahasiswaPKL);
+        $filename = 'rekap_skripsi_' . $angkatan . '_' . str_replace(' ', '_', $status) . '.pdf';
+
+        $pdf = PDF::loadView('departemen.akademik.rekap.pdfSkripsi', ['MahasiswaSkripsi' => $MahasiswaSkripsi, 'angkatan' => $angkatan, 'status' => $status]);
+        return $pdf->stream($filename);
+    }
+    
 
 
     // Status
     public function indexRekapStatus(){
         $Mahasiswa = Mahasiswa::all();
 
-        return view('departemen.akademik.rekap.rekapBerdasarkanStatus', compact('Mahasiswa'));
+        $RekapStatus = $Mahasiswa->groupBy('angkatan')->map(function($items){
+            return[
+                'Aktif' => $items->where('status', 'Aktif')->count(),
+                'Cuti' => $items->where('status', 'Cuti')->count(),
+                'Mangkir' => $items->where('status', 'Mangkir')->count(),
+                'DO' => $items->where('status', 'DO')->count(),
+                'Undur Diri' => $items->where('status', 'Undur Diri')->count(),
+                'Lulus' => $items->where('status', 'Lulus')->count(),
+                'Meninggal Dunia' => $items->where('status', 'Meninggal Dunia')->count(),
+            ];
+        });
+        // dd($RekapStatus);
+        return view('departemen.akademik.rekap.rekapBerdasarkanStatus', compact('RekapStatus'));
     }
 
-    public function filter(Request $request)
-    {
-        $angkatan = $request->input('angkatan');
-        $status = $request->input('status');
+    public function showRekapStatus($angkatan, $status){
+        $MahasiswaStatus = Mahasiswa::where('angkatan', $angkatan)->where('status', $status)->select('nim', 'nama', 'angkatan', 'jalur_masuk')->get();
+        // dd($MahasiswaStatus);
+        return view('departemen.akademik.rekap.detailStatus', compact('MahasiswaStatus', 'angkatan', 'status'));
+    }
 
-        // Query the database to get the filtered data based on the provided parameters
-        $filteredData = Mahasiswa::where('angkatan', $angkatan)
-            ->where('status', $status)
-            ->get();
+    public function cetakRekapStatus(){
 
-        return response()->json($filteredData);
+    }
+
+    public function cetakRekapStatusDetail($angkatan, $status){
+        $MahasiswaStatus = Mahasiswa::where('angkatan', $angkatan)->where('status', $status)->select('nim', 'nama', 'angkatan', 'jalur_masuk')->get();
+
+        $filename = 'rekap_status_' . $angkatan . '_' . str_replace(' ', '_', $status) . '.pdf';
+
+        $pdf = PDF::loadView('departemen.akademik.rekap.pdfStatus', ['MahasiswaStatus' => $MahasiswaStatus, 'angkatan' => $angkatan, 'status' => $status]);
+        return $pdf->stream($filename);
     }
 }

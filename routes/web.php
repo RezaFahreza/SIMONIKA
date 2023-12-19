@@ -79,14 +79,18 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     // Rekap Progress Studi Akademik
     // Rekap PKL
     Route::get('/departemen/rekap/pkl', [AkademikDepartemenController::class, 'indexRekapPKL'])->name('departemen.rekap.pkl');
-    Route::get('/departemen/rekap/pkl/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapPKL'])->name('departemen.rekap.pkl.list');
+    Route::get('/departemen/rekap/pkl/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapPKL'])->name('departemen.rekap.pkl.detail');
+    Route::get('/departemen/rekap/pkl/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapPklperAngkatanStatus'])->name('departemen.rekap.pkl.cetak.detail');
 
     // Rekap Skripsi
     Route::get('/departemen/rekap/skripsi', [AkademikDepartemenController::class, 'indexRekapSkripsi'])->name('departemen.rekap.skripsi');
-    Route::get('/departemen/rekap/skripsi/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapSkripsi'])->name('departemen.rekap.skripsi.list');
+    Route::get('/departemen/rekap/skripsi/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapSkripsi'])->name('departemen.rekap.skripsi.detail');
+    Route::get('/departemen/rekap/skripsi/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapSkripsiPerAngkatanStatus'])->name('departemen.rekap.skripsi.cetak.detail');
 
     // Rekap Status
     Route::get('/departemen/rekap/status', [AkademikDepartemenController::class, 'indexRekapStatus'])->name('departemen.rekap.status');
+    Route::get('/departemen/rekap/status/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapStatus'])->name('departemen.rekap.status.detail');
+    Route::get('/departemen/rekap/status/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapStatusDetail'])->name('departemen.rekap.status.detail.cetak');
 });
 
 // untuk untuk dosenWali
