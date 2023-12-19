@@ -1,4 +1,4 @@
-@extends('layouts.templateMahasiswa', ['title' => 'Search'])
+@extends('layouts.templateDepartemen', ['title' => 'Search'])
 
 @section('contents')
 

@@ -180,6 +180,7 @@ Route::group(['middleware' => ['auth', 'checkrole:4']], function () {
 
 });
 
+// Departemen
 Route::get('/departemen/akademik/detailSemester', function () {
     return view('departemen.akademik.pencarian.detailSemester');
 });
@@ -194,4 +195,31 @@ Route::get('/departemen/akademik/detailPKL', function () {
 });
 Route::get('/departemen/akademik/detailSkripsi', function () {
     return view('departemen.akademik.pencarian.detailSkripsiMahasiswa');
+});
+
+// Dosen Wali
+Route::get('/dosenwali/akademik/detailSemester', function () {
+    return view('dosenWali.akademik.pencarian.detailSemester');
+});
+Route::get('/dosenwali/akademik/detailIRS', function () {
+    return view('dosenWali.akademik.pencarian.detailIrsMahasiswa');
+});
+Route::get('/dosenwali/akademik/detailKHS', function () {
+    return view('dosenWali.akademik.pencarian.detailKhsMahasiswa');
+});
+Route::get('/dosenwali/akademik/detailPKL', function () {
+    return view('dosenWali.akademik.pencarian.detailPklMahasiswa');
+});
+Route::get('/dosenwali/akademik/detailSkripsi', function () {
+    return view('dosenWali.akademik.pencarian.detailSkripsiMahasiswa');
+});
+
+Route::get('/departemen/akademik/rekap/pdfpkl', function () {
+    return view('departemen.akademik.rekap.pdfPkl');
+});
+Route::get('/departemen/akademik/rekap/pdfskripsi', function () {
+    return view('departemen.akademik.rekap.pdfSkripsi');
+});
+Route::get('/departemen/akademik/rekap/pdfstatus', function () {
+    return view('departemen.akademik.rekap.pdfStatus');
 });

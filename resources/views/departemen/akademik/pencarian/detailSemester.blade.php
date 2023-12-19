@@ -61,7 +61,7 @@
                                     <div type="button" class="flex-item bg-red-600 text-white px-4 py-2 rounded-md mr-2 mb-2" data-modal-target="default-modal" data-modal-toggle="default-modal">12</div>
                                     <div type="button" class="flex-item bg-red-600 text-white px-4 py-2 rounded-md mr-2 mb-2" data-modal-target="default-modal" data-modal-toggle="default-modal">13</div>
                                     <div type="button" class="flex-item bg-red-600 text-white px-4 py-2 rounded-md mr-2 mb-2" data-modal-target="default-modal" data-modal-toggle="default-modal">14</div>
-                                    <div type="button" class="flex-item bg-red-600 text-white px-4 py-2 rounded-md mr-2 mb-2"></div>
+                                    <div type="button" class="flex-item bg-dark text-white px-4 py-2 rounded-md mr-2 mb-2"></div>
 
                                 </div>
                             </div>
