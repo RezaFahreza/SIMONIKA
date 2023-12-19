@@ -51,7 +51,10 @@
                                         @method('PUT')
                                         <div class="form-group mb-3">
                                             <label for="semester" class="form-label">Semester</label>
-                                            <input type="text" name="semester" class="form-control" value="">
+                                            <select name="semester" id="semester" class="block w-full p-2 mb-6 text-sm text-gray-900 border border-dark rounded-lg bg-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                @for ($i = 1; $i <= 14; $i++) <option value="{{ $i }}">{{ $i }}</option>
+                                                    @endfor
+                                            </select>
                                         </div>
                                         <div class="form-group mb-3">
                                             <label for="nilai_skripsi" class="form-label">Nilai skripsi</label>

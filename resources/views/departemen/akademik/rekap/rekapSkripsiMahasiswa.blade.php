@@ -45,27 +45,27 @@
                                         <td class="text-center">Belum</td>
                                     </tr>
                                     <tr>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
-                                        <td class="text-center"><a class="btn btn-link">45</a></td>
-                                        <td class="text-center"><a class="btn btn-link">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">45</a></td>
+                                        <td class="text-center"><a href="/departemen/akademik/rekap/pdfskripsi" class="btn btn-link" target="_blank">87</a></td>
                                     </tr>
                             </table>
                         </div>
                         <div class="flex justify-end p-3">
-                            <button class="text-white text-base bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-20" type="submit">Cetak</button>
+                            <a href="/departemen/akademik/rekap/pdfskripsi" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" target="_blank">Cetak Semua</a>
                         </div>
                     </div>
                 </div>

@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4">
-                                <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Mahasiswa" class="img-fluid">
+                                <img src="{{ URL::asset('images/image2.png') }}" alt="Foto Mahasiswa" class="img-fluid">
                             </div>
                             <div class="col-md-8">
                                 <table class="table">
