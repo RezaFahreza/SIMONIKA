@@ -1,4 +1,4 @@
-@extends('layouts.templateDepartemen', ['title' => 'Detail IRS'])
+@extends('layouts.templateMahasiswa', ['title' => 'Detail KHS'])
 
 @section('contents')
     <main>
@@ -10,7 +10,7 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                Detail IRS
+                                Detail KHS
                             </h3>
                         </div>
                         <!-- Modal body -->
@@ -21,50 +21,68 @@
                                         @if (isset($pkl))
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">KHS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.pkl', compact('nim', 'semester')) }}">PKL</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.pkl', compact('semester')) }}">PKL</a>
                                             </li>
                                         @elseif (isset($skripsi))
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.khs', compact('semester')) }}">KHS</a>
                                             </li>
                                             <li>
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.skripsi', compact('nim', 'semester')) }}">Skripsi</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.skripsi', compact('semester')) }}">Skripsi</a>
                                             </li>
                                         @else
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.khs', compact('semester')) }}">KHS</a>
                                             </li>
                                         @endif
                                     </ul>
                                 </div>
                                 <div class="card-body">
                                     <h2 class="text-center mb-3">Semester {{ $semester }}</h2>
-                                    <h2 class="text-center mt-3">SKS: {{ $irs->jumlah_sks_diambil }}</h2>
+                                    <table class="mx-auto">
+                                        <tr>
+                                            <td class="text-left">SKS Semester</td>
+                                            <td class="text-right">: {{ $khs->jumlah_sks_semester }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">IP Semester</td>
+                                            <td class="text-right">: {{ $khs->ip_semester }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">SKS Kumulatif</td>
+                                            <td class="text-right">: {{ $khs->sks_kumulatif }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">IP Kumulatif</td>
+                                            <td class="text-right">: {{ $khs->ip_kumulatif }}</td>
+                                        </tr>
+                                    </table>
+
                                     <div class="text-center text-blue-500 hover:text-blue-700 mt-3">
-                                        <a href="{{ asset('storage/' . $irs->scan_irs) }}" target="_blank">Lihat Detail</a>
+                                        <a href="{{ asset('storage/' . $khs->scan_khs) }}" target="_blank">Lihat Detail</a>
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ route('departemen.akademik.profile', compact('nim')) }}" type="button"
+                            <a href="{{ route('mahasiswa.dashboard') }}" type="button"
                                 class="flex-item bg-red-600 text-white px-2 py-2 rounded-md mr-2 mb-2">Kembali</a>
                         </div>
                     </div>

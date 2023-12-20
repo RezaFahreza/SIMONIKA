@@ -13,7 +13,7 @@
                                 <h4 class="text-lg font-regular">Status Kemahasiswaan: {{ $status }}</h4>
                             </div>
                             <div class="mt-4">
-                                <a href="{{route('departemen.rekap.status.detail.cetak', ['angkatan' => $angkatan, 'status' => $status])}}"
+                                <a href="{{ route('departemen.rekap.status.detail.cetak', ['angkatan' => $angkatan, 'status' => $status]) }}"
                                     class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
                                     target="_blank">Cetak PDF</a>
                             </div>
@@ -35,13 +35,18 @@
                                                 <td class="border border-gray-300 px-4 py-2">{{ $mahasiswa->nim }}</td>
                                                 <td class="border border-gray-300 px-4 py-2">{{ $mahasiswa->nama }}</td>
                                                 <td class="border border-gray-300 px-4 py-2">{{ $mahasiswa->angkatan }}</td>
-                                                <td class="border border-gray-300 px-4 py-2">{{ $mahasiswa->jalur_masuk }}</td>
+                                                <td class="border border-gray-300 px-4 py-2">{{ $mahasiswa->jalur_masuk }}
+                                                </td>
                                             </tr>
                                         @endforeach
                                     @endif
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div class="flex justify-end p-3">
+                        <a href="{{ route('departemen.rekap.status') }}"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Kembali</a>
                     </div>
                 </div>
             </div>

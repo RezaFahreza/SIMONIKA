@@ -90,7 +90,7 @@
                                     <td class="align-middle">${results[i].nim}</td>
                                     <td class="align-middle">${results[i].nama}</td>
                                     <td class="align-middle">${results[i].angkatan}</td>
-                                    <td class="align-middle"><a href="{{ route('departemen.akademik.profile', ['nim' => $mahasiswa->nim]) }}">Lihat Progress</a></td>
+                                    <td class="align-middle"><a href="/departemen/akademik/profile/${results[i].nim}">Lihat Progress</a></td>
                                 </tr>
                             `);
                         }

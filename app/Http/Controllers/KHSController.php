@@ -59,7 +59,7 @@ class KHSController extends Controller
         ]);
 
         if (KHS::where('semester_aktif', $request->semester_aktif)->where('mahasiswa_id', $mahasiswa->nim)->exists()) {
-            return redirect()->route('mahasiswa.dashboard.akademik.KHS.create', ['mahasiswa' => $mahasiswa])
+            return redirect()->route('mahasiswa.dashboard.akademik.khs.create', ['mahasiswa' => $mahasiswa])
                 ->with('error', 'KHS untuk semester tersebut sudah terdaftar');
         }
 
