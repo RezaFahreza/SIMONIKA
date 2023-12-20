@@ -75,20 +75,27 @@ Route::group(['middleware' => ['auth', 'checkrole:2']], function () {
     Route::get('/departemen/akademik', [AkademikDepartemenController::class, 'index'])->name('departemen.akademik');
     Route::get('/departemen/akademik-search', [AkademikDepartemenController::class, 'searchMahasiswa'])->name('departemen.akademik.search');
     Route::get('/departemen/akademik/profile/{nim}', [AkademikDepartemenController::class, 'indexAkademik'])->name('departemen.akademik.profile');
+    Route::get('/departemen/akademik/profile/show-irs/{nim}/{semester}', [AkademikDepartemenController::class, 'showAkademikSemesterIRS'])->name('departemen.akademik.profile.show.irs');
+    Route::get('/departemen/akademik/profile/show-khs/{nim}/{semester}', [AkademikDepartemenController::class, 'showAkademikSemesterKHS'])->name('departemen.akademik.profile.show.khs');
+    Route::get('/departemen/akademik/profile/show-pkl/{nim}/{semester}', [AkademikDepartemenController::class, 'showAkademikSemesterPKL'])->name('departemen.akademik.profile.show.pkl');
+    Route::get('/departemen/akademik/profile/show-skripsi/{nim}/{semester}', [AkademikDepartemenController::class, 'showAkademikSemesterSkripsi'])->name('departemen.akademik.profile.show.skripsi');
 
     // Rekap Progress Studi Akademik
     // Rekap PKL
     Route::get('/departemen/rekap/pkl', [AkademikDepartemenController::class, 'indexRekapPKL'])->name('departemen.rekap.pkl');
+    Route::get('/departemen/rekap/pkl/cetak', [AkademikDepartemenController::class, 'cetakRekapPKL'])->name('departemen.rekap.pkl.cetak');
     Route::get('/departemen/rekap/pkl/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapPKL'])->name('departemen.rekap.pkl.detail');
     Route::get('/departemen/rekap/pkl/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapPklperAngkatanStatus'])->name('departemen.rekap.pkl.cetak.detail');
 
     // Rekap Skripsi
     Route::get('/departemen/rekap/skripsi', [AkademikDepartemenController::class, 'indexRekapSkripsi'])->name('departemen.rekap.skripsi');
+    Route::get('/departemen/rekap/skripsi/cetak', [AkademikDepartemenController::class, 'cetakRekapSkripsi'])->name('departemen.rekap.skripsi.cetak');
     Route::get('/departemen/rekap/skripsi/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapSkripsi'])->name('departemen.rekap.skripsi.detail');
     Route::get('/departemen/rekap/skripsi/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapSkripsiPerAngkatanStatus'])->name('departemen.rekap.skripsi.cetak.detail');
 
     // Rekap Status
     Route::get('/departemen/rekap/status', [AkademikDepartemenController::class, 'indexRekapStatus'])->name('departemen.rekap.status');
+    Route::get('/departemen/rekap/status/cetak', [AkademikDepartemenController::class, 'cetakRekapStatus'])->name('departemen.rekap.status.cetak');
     Route::get('/departemen/rekap/status/detail/{angkatan}/{status}', [AkademikDepartemenController::class, 'showRekapStatus'])->name('departemen.rekap.status.detail');
     Route::get('/departemen/rekap/status/detail/cetak/{angkatan}/{status}', [AkademikDepartemenController::class, 'cetakRekapStatusDetail'])->name('departemen.rekap.status.detail.cetak');
 });
@@ -136,6 +143,10 @@ Route::group(['middleware' => ['auth', 'checkrole:3']], function () {
     Route::get('/dosenwali/akademik', [AkademikDosenWaliController::class, 'index'])->name('dosenWali.akademik.index');
     Route::get('/dosenwali/akademik-search', [AkademikDosenWaliController::class, 'searchMahasiswa'])->name('dosenWali.akademik.search');
     Route::get('/dosenwali/akademik/profile/{nim}', [AkademikDosenWaliController::class, 'indexAkademik'])->name('dosenWali.akademik.profile');
+    Route::get('/dosenwali/akademik/profile/show-irs/{nim}/{semester}', [AkademikDosenWaliController::class, 'showAkademikSemesterIRS'])->name('dosenWali.akademik.profile.show.irs');
+    Route::get('/dosenwali/akademik/profile/show-khs/{nim}/{semester}', [AkademikDosenWaliController::class, 'showAkademikSemesterKHS'])->name('dosenWali.akademik.profile.show.khs');
+    Route::get('/dosenwali/akademik/profile/show-pkl/{nim}/{semester}', [AkademikDosenWaliController::class, 'showAkademikSemesterPKL'])->name('dosenWali.akademik.profile.show.pkl');
+    Route::get('/dosenwali/akademik/profile/show-skripsi/{nim}/{semester}', [AkademikDosenWaliController::class, 'showAkademikSemesterSkripsi'])->name('dosenWali.akademik.profile.show.skripsi');
 
     // Rekap Progress Studi Akademik
 });
@@ -151,6 +162,11 @@ Route::group(['middleware' => ['auth', 'checkrole:4']], function () {
     Route::get('/mahasiswa/profile', [MahasiswaController::class, 'showProfile'])->name('mahasiswa.profile');
     Route::get('/mahasiswa/profile/edit', [MahasiswaController::class, 'editProfile'])->name('mahasiswa.profile.edit');
     Route::put('/mahasiswa/profile/update', [MahasiswaController::class, 'updateProfile'])->name('mahasiswa.profile.update');
+
+    Route::get('/mahasiswa/dashboard/show-irs/{semester}', [MahasiswaController::class, 'showAkademikSemesterIRS'])->name('mahasiswa.dashboard.show.irs');
+    Route::get('/mahasiswa/dashboard/show-khs/{semester}', [MahasiswaController::class, 'showAkademikSemesterKHS'])->name('mahasiswa.dashboard.show.khs');
+    Route::get('/mahasiswa/dashboard/show-pkl/{semester}', [MahasiswaController::class, 'showAkademikSemesterPKL'])->name('mahasiswa.dashboard.show.pkl');
+    Route::get('/mahasiswa/dashboard/show-skripsi/{semester}', [MahasiswaController::class, 'showAkademikSemesterSkripsi'])->name('mahasiswa.dashboard.show.skripsi');
 
 
     Route::get('/mahasiswa/dashboard/akademik', [AkademikController::class, 'indexMahasiswa'])->name('mahasiswa.dashboard.akademik');

@@ -65,7 +65,7 @@
                             </table>
                         </div>
                         <div class="flex justify-end p-3">
-                            <a href="/departemen/akademik/rekap/pdfskripsi" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" target="_blank">Cetak Semua</a>
+                            <a href="{{route("departemen.rekap.skripsi.cetak")}}" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 rounded-lg px-2 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" target="_blank">Cetak Semua</a>
                         </div>
                     </div>
                 </div>

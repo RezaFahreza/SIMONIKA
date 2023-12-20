@@ -1,4 +1,4 @@
-@extends('layouts.templateDepartemen', ['title' => 'Detail IRS'])
+@extends('layouts.templateMahasiswa', ['title' => 'Detail IRS'])
 
 @section('contents')
     <main>
@@ -21,37 +21,37 @@
                                         @if (isset($pkl))
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">KHS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.pkl', compact('nim', 'semester')) }}">PKL</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.pkl', compact('semester')) }}">PKL</a>
                                             </li>
                                         @elseif (isset($skripsi))
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.khs', compact('semester')) }}">KHS</a>
                                             </li>
                                             <li>
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.skripsi', compact('nim', 'semester')) }}">Skripsi</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.skripsi', compact('semester')) }}">Skripsi</a>
                                             </li>
                                         @else
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.irs', compact('nim', 'semester')) }}">IRS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.irs', compact('semester')) }}">IRS</a>
                                             </li>
                                             <li class="mr-6">
                                                 <a class="text-blue-500 hover:text-blue-700"
-                                                    href="{{ route('departemen.akademik.profile.show.khs', compact('nim', 'semester')) }}">KHS</a>
+                                                    href="{{ route('mahasiswa.dashboard.show.khs', compact('semester')) }}">KHS</a>
                                             </li>
                                         @endif
                                     </ul>
@@ -64,7 +64,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="{{ route('departemen.akademik.profile', compact('nim')) }}" type="button"
+                            <a href="{{ route('mahasiswa.dashboard') }}" type="button"
                                 class="flex-item bg-red-600 text-white px-2 py-2 rounded-md mr-2 mb-2">Kembali</a>
                         </div>
                     </div>

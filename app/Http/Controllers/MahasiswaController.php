@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DosenWali;
+use App\Models\IRS;
+use App\Models\KHS;
 use App\Models\Mahasiswa;
 use App\Models\PKL;
 use App\Models\Skripsi;
@@ -71,9 +73,9 @@ class MahasiswaController extends Controller
     {
         $user = Auth::user();
         $data = DB::table('mahasiswa')
-        ->join('dosen_wali', 'mahasiswa.dosen_wali', '=', 'dosen_wali.nip')
-        ->select('mahasiswa.*', 'dosen_wali.nama as nama_dosen')
-        ->get();
+            ->join('dosen_wali', 'mahasiswa.dosen_wali', '=', 'dosen_wali.nip')
+            ->select('mahasiswa.*', 'dosen_wali.nama as nama_dosen')
+            ->get();
 
         $targetMahasiswa = $data->firstWhere('user_id', $user->id);
 
@@ -86,14 +88,44 @@ class MahasiswaController extends Controller
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
 
-        // Ambil semua data mahasiswa (opsional, sesuaikan dengan kebutuhan Anda)
+        // mendapatkan data IRS
+        $irsMahasiswa = DB::table('irs')
+            ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
+            ->orderBy('semester_aktif', 'asc')
+            ->get();
+
+        // mendapatkan data KHS
+        $khsMahasiswa = DB::table('khs')
+            ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
+            ->orderBy('semester_aktif', 'asc')
+            ->get();
+
+        // mendapatkan data PKL
+        $pklMahasiswa = DB::table('pkl')
+            ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
+            ->get();
+
+        $pkl = $pklMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
+
+        // mendapatkan data Skripsi
+        $skripsiMahasiswa = DB::table('skripsi')
+            ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
+            ->get();
+
+        $skripsi = $skripsiMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
+
+        $dosenWali = DosenWali::where('nip', $mahasiswa->dosen_wali)->first();
 
 
-        return view('mahasiswa.dashboardMahasiswa', ['mahasiswa' => $mahasiswa]);
+
+        return view('mahasiswa.dashboardMahasiswa', compact('mahasiswa', 'dosenWali', 'irsMahasiswa', 'khsMahasiswa', 'pkl', 'skripsi'));
     }
     public function create()
     {
-
     }
 
     /**
@@ -127,39 +159,41 @@ class MahasiswaController extends Controller
 
         if ($request->hasFile('foto')) {
             // Menyimpan Upload foto
-            $foto= $request->file('foto');
+            $foto = $request->file('foto');
             $fileName = $foto->hashName();
             $filePath = 'uploads/foto_mahasiswa/' . $fileName;
             Storage::disk('public')->put($filePath, file_get_contents($foto));
             $mahasiswa->foto_mahasiswa = $filePath;
 
             $mahasiswa->save();
-            
+
             // Tambahkan catatan otomatis di tabel PKL
             $pkl = new PKL();
             $pkl->status = 'belum ambil';
             $pkl->mahasiswa_id = $mahasiswa->nim;
             $pkl->save();
-            
+
             // Tambahkan catatan otomatis di tabel Skripsi
             $skripsi = new Skripsi();
             $skripsi->status = 'belum ambil';
             $skripsi->mahasiswa_id = $mahasiswa->nim;
             $skripsi->save();
-            
+
             return redirect()->route('mahasiswa.index')->with('success', 'Data Mahasiswa berhasil diperbarui.');
         }
-}
+    }
 
-//  Profil Mahasiswa
-    public function showProfile(){
+    //  Profil Mahasiswa
+    public function showProfile()
+    {
         $user = Auth::user();
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
         return view('mahasiswa.profile.profileMahasiswa', compact('mahasiswa'));
     }
 
-    public function editProfile(){
+    public function editProfile()
+    {
 
         $user = Auth::user();
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
@@ -167,7 +201,8 @@ class MahasiswaController extends Controller
         return view('mahasiswa.profile.editProfile', compact('mahasiswa'));
     }
 
-    public function updateProfile(Request $request){
+    public function updateProfile(Request $request)
+    {
         $user = Auth::user();
         // Ambil data mahasiswa yang sesuai dengan user yang telah login
         $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
@@ -191,7 +226,60 @@ class MahasiswaController extends Controller
 
         return redirect()->route('mahasiswa.profile')->with('success', 'Perubahan berhasil disimpan');
     }
-    public function store(Request $request, )
+
+    public function showAkademikSemesterIRS($semester)
+    {
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+
+        $irs = IRS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        // dd($pkl);
+        return view('mahasiswa.detailProgress.detailIrsMahasiswa', compact('semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // KHS
+    public function showAkademikSemesterKHS($semester)
+    {
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+
+        $irs = IRS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        return view('mahasiswa.detailProgress.detailKhsMahasiswa', compact('semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // PKL
+    public function showAkademikSemesterPKL($semester)
+    {
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+
+        $irs = IRS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        return view('mahasiswa.detailProgress.detailPklMahasiswa', compact('semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // Skripsi
+    public function showAkademikSemesterSkripsi($semester)
+    {
+        $user = Auth::user();
+        // Ambil data mahasiswa yang sesuai dengan user yang telah login
+        $mahasiswa = Mahasiswa::where('user_id', $user->id)->first();
+
+        $irs = IRS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $mahasiswa->nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $mahasiswa->nim)->where('semester', $semester)->first();
+        return view('mahasiswa.detailProgress.detailSkripsiMahasiswa', compact('semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    public function store(Request $request,)
     {
         //
     }

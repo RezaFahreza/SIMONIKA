@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Departemen;
+use App\Models\DosenWali;
+use App\Models\IRS;
+use App\Models\KHS;
 use App\Models\Mahasiswa;
 use App\Models\PKL;
 use App\Models\Skripsi;
@@ -50,36 +53,83 @@ class AkademikDepartemenController extends Controller
         // mendapatkan data IRS
         $irsMahasiswa = DB::table('irs')
             ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
             ->orderBy('semester_aktif', 'asc')
             ->get();
 
         // mendapatkan data KHS
         $khsMahasiswa = DB::table('khs')
             ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
             ->orderBy('semester_aktif', 'asc')
             ->get();
 
         // mendapatkan data PKL
         $pklMahasiswa = DB::table('pkl')
             ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
             ->get();
 
         $pkl = $pklMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
 
         // mendapatkan data Skripsi
         $skripsiMahasiswa = DB::table('skripsi')
-        ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('mahasiswa_id', $mahasiswa->nim)
+            ->where('status_validasi', 'DISETUJUI')
             ->get();
 
         $skripsi = $skripsiMahasiswa->where('mahasiswa_id', $mahasiswa->nim)->first();
 
-        // dd($skripsi);
+        $dosenWali = DosenWali::where('nip', $mahasiswa->dosen_wali)->first();
+        // dd($dosenWali);
 
         return view('departemen.akademik.pencarian.detailSemester', [
             'mahasiswa' => $mahasiswa, 'irsMahasiswa' => $irsMahasiswa,
-            'khsMahasiswa' => $khsMahasiswa, 'pkl' => $pkl, 'skripsi' => $skripsi
+            'khsMahasiswa' => $khsMahasiswa, 'pkl' => $pkl, 'skripsi' => $skripsi,
+            'dosenWali' => $dosenWali
         ]);
     }
+    
+    // Detail Akademik Semester
+    // IRS
+    public function showAkademikSemesterIRS($nim, $semester){
+        $irs = IRS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        // dd($pkl);
+        return view('departemen.akademik.pencarian.detailIrsMahasiswa', compact('nim', 'semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // KHS
+    public function showAkademikSemesterKHS($nim, $semester)
+    {
+        $irs = IRS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        return view('departemen.akademik.pencarian.detailKhsMahasiswa', compact('nim', 'semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // PKL
+    public function showAkademikSemesterPKL($nim, $semester)
+    {
+        $irs = IRS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        return view('departemen.akademik.pencarian.detailPklMahasiswa', compact('nim', 'semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+    // Skripsi
+    public function showAkademikSemesterSkripsi($nim, $semester)
+    {
+        $irs = IRS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $khs = KHS::where('mahasiswa_id', $nim)->where('semester_aktif', $semester)->first();
+        $pkl = PKL::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        $skripsi = Skripsi::where('mahasiswa_id', $nim)->where('semester', $semester)->first();
+        return view('departemen.akademik.pencarian.detailSkripsiMahasiswa', compact('nim', 'semester', 'irs', 'khs', 'pkl', 'skripsi'));
+    }
+
+
+
 
     // REKAP
     // pkl
@@ -116,8 +166,9 @@ class AkademikDepartemenController extends Controller
                 'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
             ];
         });
-        $pdf = PDF::loadView('departemen.akademik.rekap.pdfPkl', ['RekapPklPerAngkatan']);
-        return $pdf->download('rekap-pkl-departemen');
+        $pdf = PDF::loadView('departemen.akademik.rekap.lengkappdfPkl', ['RekapPklPerAngkatan' => $RekapPklPerAngkatan]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('rekap_pkl_departemen.pdf');
     }
 
     public function cetakRekapPKLPerAngkatanStatus($angkatan, $status){
@@ -168,8 +219,9 @@ class AkademikDepartemenController extends Controller
                 'jumlah_belum_ambil' => $items->where('status', 'belum ambil')->count(),
             ];
         });
-        $pdf = PDF::loadView('departemen.akademik.rekap.pdfSkripsi', ['RekapSkripsiPerAngkatan']);
-        return $pdf->download('rekap-pkl-departemen');
+        $pdf = PDF::loadView('departemen.akademik.rekap.lengkappdfSkripsi', ['RekapSkripsiPerAngkatan' => $RekapSkripsiPerAngkatan]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('rekap_skripsi_departemen.pdf');
     }
 
     public function cetakRekapSkripsiPerAngkatanStatus($angkatan, $status){
@@ -212,7 +264,23 @@ class AkademikDepartemenController extends Controller
     }
 
     public function cetakRekapStatus(){
+        $Mahasiswa = Mahasiswa::all();
 
+        $RekapStatus = $Mahasiswa->groupBy('angkatan')->map(function ($items) {
+            return [
+                'Aktif' => $items->where('status', 'Aktif')->count(),
+                'Cuti' => $items->where('status', 'Cuti')->count(),
+                'Mangkir' => $items->where('status', 'Mangkir')->count(),
+                'DO' => $items->where('status', 'DO')->count(),
+                'Undur Diri' => $items->where('status', 'Undur Diri')->count(),
+                'Lulus' => $items->where('status', 'Lulus')->count(),
+                'Meninggal Dunia' => $items->where('status', 'Meninggal Dunia')->count(),
+            ];
+        });
+
+        $pdf = PDF::loadView('departemen.akademik.rekap.lengkappdfStatus', ['RekapStatus' => $RekapStatus]);
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->stream('rekap_status_kuantitas.pdf');
     }
 
     public function cetakRekapStatusDetail($angkatan, $status){
