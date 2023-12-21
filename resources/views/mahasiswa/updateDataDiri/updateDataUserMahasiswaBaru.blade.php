@@ -22,10 +22,6 @@
                 <input type="text" name="alamat" class="form-control" value="{{ $targetMahasiswa->alamat ?? '' }}" placeholder="Alamat">
             </div>
             <div class="form-group">
-                <label for="kab_kota">Kabupaten/Kota</label>
-                <input type="text" name="kab_kota" class="form-control" value="{{ $targetMahasiswa->kab_kota ?? '' }}" placeholder="Kabupaten/Kota">
-            </div>
-            <div class="form-group">
                 <label for="propinsi">Provinsi</label>
                 <select class="form-control" id="propinsi" name="propinsi" class="form-control" value="{{ $targetMahasiswa->propinsi ?? '' }}" placeholder="Provinsi">
                     <option value="">Pilih Propinsi</option>
@@ -63,6 +59,10 @@
                     <option value="Papua Barat">Papua Barat</option>
                     <option value="Papua">Papua</option>
                 </select>
+            </div>
+            <div class="form-group">
+                <label for="kab_kota">Kabupaten/Kota</label>
+                <input type="text" name="kab_kota" class="form-control" value="{{ $targetMahasiswa->kab_kota ?? '' }}" placeholder="Kabupaten/Kota">
             </div>
             <div class="form-group">
                 <label for="angkatan">Angkatan</label>
