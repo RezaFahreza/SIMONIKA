@@ -6,22 +6,34 @@
         <div class="mx-auto py-6 sm:px-6 lg:px-8">
             <div class="container px-4 py-5">
                 <h2 class="mt-4 text-3xl font-bold text-gray-900 mb-4">Profile</h2>
-                <div class="card py-2">
-                    <div class="row gy-2 ml-4 align-items-center">
-                        <div class="col-1.5">
-                            <img class="h-20 w-20 rounded-circle bg-gray-50 ml-4" src="{{ URL::asset('images/image1.jpg') }}" alt=" foto profile">
-                        </div>
-                        <div class="card ml-4">
-                            <div class="col md:text-justify">
-                                <p class="text-sm font-weight-bold text-gray-900">Operator</p>
-                                <p class="mt-1 text-xs text-gray-500">Nama :{{$operator->nama}}</p>
-                                <p class="mt-1 text-xs text-gray-500">NIP :{{$operator->nip}}</p>
-                                <p class="mt-1 text-xs text-gray-500">Email :{{$operator->email}}</p>
-                                <p class="text-sm font-weight-bold text-gray-900">Informatika</p>
+                <div class="card">
+                        <div class="card-body">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="md:flex md:items-center">
+                                    <img src="{{ URL::asset('images/image1.jpg') }}" alt="Foto Departemen"
+                                        class="md:w-1/4 mx-auto md:mx-0">
+                                </div>
+                                <div class="md:flex md:items-center">
+                                    <table class="table mt-4 md:mx-auto">
+                                        <tbody>
+                                            <tr>
+                                                <td>Nama:</td>
+                                                <td>{{ $operator->nama }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>NIP:</td>
+                                                <td>{{ $operator->nip }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email:</td>
+                                                <td>{{ $operator->email }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
                 <h2 class="mt-4 text-3xl font-bold text-gray-900 mb-4">Menu</h2>
 
